@@ -1,0 +1,5371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rakumade｜中国OEMで、あなたのブランドを世界へ</title>
+<meta name="description" content="Rakumadeは、中国OEM/ODMの工場選定から試作・量産・検品・日本国内納品、自社ブランドの成長支援まで対応します。商品づくりに悩むEC事業者・法人のお客様のパートナーです。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy-950: #061629;
+  --navy-900: #0a2540;
+  --navy-800: #102a4c;
+  --navy-700: #1a3d6b;
+  --navy-600: #234a7d;
+  --navy-500: #305b94;
+  --navy-400: #4a7ab8;
+  --navy-200: #b8cce0;
+  --navy-100: #d9e4f0;
+  --navy-50: #eef3f8;
+  --accent-700: #1d4ed8;
+  --accent-600: #2563eb;
+  --accent-500: #3b82f6;
+  --accent-400: #60a5fa;
+  --accent-100: #dbeafe;
+  --accent-50: #eff6ff;
+  --signal-amber: #f7c75f;
+  --signal-teal: #67e8f9;
+  --gray-900: #1a202c;
+  --gray-700: #4a5568;
+  --gray-600: #5a6779;
+  --gray-500: #718096;
+  --gray-300: #cbd5e0;
+  --gray-200: #e2e8f0;
+  --gray-100: #edf2f7;
+  --gray-50: #f7fafc;
+  --white: #ffffff;
+  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-serif-jp: 'Noto Serif JP', serif;
+  --font-en: 'Manrope', sans-serif;
+  --shadow-sm: 0 1px 2px rgba(10, 37, 64, 0.05);
+  --shadow-md: 0 4px 12px rgba(10, 37, 64, 0.08);
+  --shadow-lg: 0 12px 32px rgba(10, 37, 64, 0.12);
+  --shadow-xl: 0 24px 56px rgba(10, 37, 64, 0.16);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-jp);
+  font-weight: 400;
+  color: var(--gray-900);
+  background: var(--white);
+  line-height: 1.8;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+.mobile-break { display: none; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* サイドナビ */
+.side-nav {
+  position: fixed;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 8px;
+  border-radius: 12px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.side-nav:hover {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-lg);
+}
+.side-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  position: relative;
+  padding: 4px 5px;
+  border-radius: 8px;
+  transition: background 0.25s;
+}
+.side-nav:hover .side-nav-item:hover {
+  background: var(--navy-50);
+}
+.side-nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--navy-400);
+  background: transparent;
+  transition: all 0.25s;
+  flex-shrink: 0;
+}
+.side-nav-item.active .side-nav-dot {
+  background: var(--accent-500);
+  border-color: var(--accent-500);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+.side-nav-item:hover .side-nav-dot { border-color: var(--accent-500); }
+.side-nav-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--navy-900);
+  letter-spacing: 0;
+  white-space: nowrap;
+  transition: max-width 0.3s ease, opacity 0.25s ease;
+  overflow: hidden;
+  /* 通常時：非アクティブは隠す */
+  max-width: 0;
+  opacity: 0;
+}
+/* 通常時：アクティブな項目だけラベル表示 */
+.side-nav-item.active .side-nav-label {
+  max-width: 150px;
+  opacity: 1;
+}
+/* ホバー時：全項目のラベルを展開 */
+.side-nav:hover .side-nav-label {
+  max-width: 150px;
+  opacity: 1;
+}
+/* 暗い背景セクション用：ホバーしていない通常時のみ白文字 */
+.side-nav-item.dark .side-nav-dot { border-color: var(--navy-200); }
+.side-nav-item.dark.active .side-nav-dot { border-color: var(--accent-500); }
+.side-nav:not(:hover) .side-nav-item.dark .side-nav-label { color: var(--white); }
+
+/* ヘッダー */
+.header-top {
+  background: var(--navy-950);
+  color: var(--navy-100);
+  font-size: 13px;
+  padding: 8px 0;
+}
+.header-top-inner {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+}
+.header-top a:hover { color: var(--accent-400); }
+.header-top-dl {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--navy-100);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  padding: 2px 12px;
+  transition: all 0.2s;
+}
+.header-top-dl:hover {
+  color: var(--white);
+  border-color: var(--accent-400);
+  background: rgba(255, 255, 255, 0.06);
+}
+.header-top-dl svg { flex-shrink: 0; }
+.header {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 88px;
+}
+.logo-img { height: 48px; width: auto; display: block; }
+.logo-link { display: inline-block; }
+
+.nav-main { display: flex; gap: 26px; align-items: center; flex-wrap: nowrap; }
+.nav-main > li { position: relative; list-style: none; }
+.nav-main > li > a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--navy-900);
+  padding: 28px 0;
+  display: inline-block;
+  position: relative;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-main > li > a::after {
+  content: '';
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-500);
+  transition: width 0.3s ease;
+}
+.nav-main > li:hover > a { color: var(--accent-600); }
+.nav-main > li:hover > a::after { width: 100%; }
+.nav-sub {
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  background: var(--white);
+  min-width: 260px;
+  padding: 20px 0;
+  box-shadow: var(--shadow-lg);
+  border-top: 3px solid var(--accent-500);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.25s ease;
+  list-style: none;
+}
+.nav-main > li:hover .nav-sub {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-sub li a {
+  display: block;
+  padding: 10px 28px;
+  font-size: 14px;
+  color: var(--gray-700);
+  transition: all 0.2s;
+}
+.nav-sub li a:hover {
+  background: var(--navy-50);
+  color: var(--navy-900);
+  padding-left: 36px;
+}
+.header-cta { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
+.btn-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy-700);
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+.btn-text:hover { color: var(--accent-600); }
+.btn-primary {
+  background: var(--accent-600);
+  color: var(--white);
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: var(--accent-700);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ヒーロー */
+.hero {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(6, 22, 41, 0.98) 0%, rgba(10, 37, 64, 0.98) 54%, rgba(18, 53, 91, 0.98) 100%),
+    var(--navy-950);
+  color: var(--white);
+  overflow: hidden;
+  padding: 100px 0 0;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(96, 165, 250, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.05) 1px, transparent 1px),
+    linear-gradient(120deg, transparent 0 40%, rgba(103, 232, 249, 0.08) 50%, transparent 62%);
+  background-size: 88px 88px, 88px 88px, 100% 100%;
+  opacity: 0.85;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10%;
+  bottom: 0;
+  width: 58%;
+  background:
+    linear-gradient(115deg, transparent 0%, rgba(96, 165, 250, 0.12) 44%, rgba(247, 199, 95, 0.08) 52%, transparent 68%);
+  transform: skewX(-10deg);
+  animation: heroSweep 18s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes heroSweep {
+  0%, 100% { opacity: 0.55; transform: translateX(-4%) skewX(-10deg); }
+  50% { opacity: 0.9; transform: translateX(3%) skewX(-10deg); }
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding-bottom: 60px;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+/* ヒーロータグライン削除（英文ラベル削除指示に基づく） */
+.hero h1 {
+  font-family: var(--font-serif-jp);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  margin-bottom: 28px;
+  animation: fadeInUp 0.9s ease 0.2s both;
+}
+.hero h1 .accent {
+  color: var(--accent-400);
+  position: relative;
+  display: inline-block;
+}
+.hero h1 .accent::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent-500);
+  animation: lineExpand 1.2s ease 1s both;
+}
+@keyframes lineExpand {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-intro {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.85;
+  color: var(--white);
+  margin-bottom: 16px;
+  max-width: 600px;
+  animation: fadeInUp 0.95s ease 0.35s both;
+}
+.hero-lead {
+  font-size: 15px;
+  line-height: 2;
+  color: var(--navy-100);
+  margin-bottom: 40px;
+  max-width: 600px;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fadeInUp 1.1s ease 0.6s both;
+}
+.btn-hero-primary {
+  background: var(--accent-500);
+  color: var(--white);
+  padding: 18px 36px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-hero-primary:hover {
+  background: var(--accent-600);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.4);
+}
+.btn-hero-secondary {
+  background: transparent;
+  color: var(--white);
+  padding: 18px 36px;
+  font-size: 15px;
+  font-weight: 700;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.btn-hero-secondary:hover {
+  background: var(--white);
+  color: var(--navy-900);
+  border-color: var(--white);
+}
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInUp 1.2s ease 0.5s both;
+}
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 530px;
+  filter: drop-shadow(0 34px 60px rgba(0, 0, 0, 0.32));
+}
+.hero-image-main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(7, 26, 49, 0.16), rgba(7, 26, 49, 0.62)),
+    url('rakumade-hero-network-bg.png') center / cover,
+    linear-gradient(145deg, rgba(10, 37, 64, 0.88), rgba(26, 61, 107, 0.5));
+  border: 1px solid rgba(184, 204, 224, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(22px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 0 92px rgba(59, 130, 246, 0.14);
+}
+.hero-image-main::before {
+  content: '';
+  position: absolute;
+  inset: 22px;
+  border: 1px solid rgba(184, 204, 224, 0.2);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(96, 165, 250, 0.16), transparent 36%),
+    linear-gradient(rgba(184, 204, 224, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 204, 224, 0.03) 1px, transparent 1px);
+  background-size: auto, 64px 64px, 64px 64px;
+  box-shadow: inset 0 0 42px rgba(184, 204, 224, 0.05);
+}
+.hero-image-main::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 10%, rgba(103, 232, 249, 0.12) 46%, transparent 64%);
+  opacity: 0.65;
+  animation: signalScan 8s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-svg {
+  position: relative;
+  z-index: 1;
+  width: 96%;
+  height: 96%;
+}
+.hero-svg .route-dash {
+  stroke-dasharray: 8 12;
+  animation: routeDash 18s linear infinite;
+}
+.hero-svg .route-main {
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 1800;
+  animation: routeDraw 1.8s ease 0.45s forwards;
+}
+.hero-svg .route-delay-1 {
+  animation-delay: 0.6s;
+}
+.hero-svg .route-delay-2 {
+  animation-delay: 0.75s;
+}
+.hero-svg .route-delay-3 {
+  animation-delay: 0.9s;
+}
+.hero-svg .route-delay-4 {
+  animation-delay: 1.05s;
+}
+.hero-svg .route-delay-5 {
+  animation-delay: 1.2s;
+}
+.hero-svg .node-card {
+  animation: nodeFloat 7s ease-in-out infinite;
+}
+.hero-svg .node-card:nth-of-type(2n) {
+  animation-delay: -2.5s;
+}
+.hero-svg .core-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: corePulse 4.8s ease-in-out infinite;
+}
+.hero-svg .moving-parcel {
+  animation: parcelDrift 8s ease-in-out infinite;
+}
+@keyframes signalScan {
+  0%, 100% { transform: translateX(-18%); opacity: 0.35; }
+  50% { transform: translateX(18%); opacity: 0.72; }
+}
+@keyframes routeDash {
+  to { stroke-dashoffset: -220; }
+}
+@keyframes routeDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes nodeFloat {
+  0%, 100% { opacity: 0.86; }
+  50% { opacity: 1; }
+}
+@keyframes corePulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.04); }
+}
+@keyframes parcelDrift {
+  0%, 100% { opacity: 0.76; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero::after,
+  .hero h1,
+  .hero h1 .accent::after,
+  .hero-intro,
+  .hero-lead,
+  .hero-cta,
+  .hero-visual,
+  .hero-image-main::after,
+  .hero-svg *,
+  .reveal {
+    animation: none !important;
+    transition: none !important;
+  }
+  .hero-svg .route-main { stroke-dashoffset: 0; }
+}
+
+/* 対応できるお客様 */
+.audience-tags {
+  position: relative;
+  z-index: 2;
+  padding: 50px 0 56px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.audience-tags-title {
+  font-family: var(--font-serif-jp);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 28px;
+  text-align: center;
+}
+.audience-tags-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+.audience-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+.audience-tag {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+}
+.audience-tag:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--accent-400);
+  transform: translateY(-2px);
+}
+
+/* コア・バリュー（横並び5つ）- 英文ラベル削除 */
+.hero-values-bar {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.04);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+}
+.hero-values-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+.hv-item {
+  padding: 32px 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  transition: background 0.3s;
+}
+.hv-item:last-child { border-right: none; }
+.hv-item:hover { background: rgba(255, 255, 255, 0.04); }
+.hv-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-radius: 50%;
+  color: var(--accent-400);
+}
+.hv-icon svg { width: 22px; height: 22px; }
+.hv-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+.hv-desc {
+  font-size: 11px;
+  color: var(--navy-100);
+  line-height: 1.7;
+}
+
+/* 数値 */
+.stats {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 56px 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.stat-item {
+  text-align: center;
+  position: relative;
+}
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -16px;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: var(--gray-200);
+}
+.stat-number {
+  font-family: var(--font-en);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--navy-900);
+  letter-spacing: 0;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.stat-number .unit {
+  font-size: 0.5em;
+  color: var(--accent-600);
+  margin-left: 4px;
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+/* セクション共通（英文ラベル削除版） */
+.section-title {
+  font-family: var(--font-serif-jp);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  color: var(--navy-900);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.section-title-mark {
+  display: inline-block;
+  width: 4px;
+  height: 28px;
+  background: var(--accent-500);
+  vertical-align: middle;
+  margin-right: 16px;
+  margin-bottom: 4px;
+}
+.section-subtitle {
+  font-size: 15px;
+  color: var(--gray-700);
+  line-height: 2;
+  max-width: 800px;
+  margin-bottom: 56px;
+}
+.section-header { margin-bottom: 64px; }
+
+/* お客様の実現したいこと（旧 YOUR GOALS）*/
+.goals {
+  background: var(--white);
+  padding: 100px 0;
+  position: relative;
+}
+.goals::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.04), transparent 70%);
+}
+.goals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  position: relative;
+}
+.goal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+.goal-row:last-child { border-bottom: none; padding-bottom: 0; }
+.goal-row.reverse .goal-content { order: 2; }
+.goal-row.reverse .goal-services { order: 1; }
+.goal-content { position: relative; }
+.goal-num {
+  font-family: var(--font-en);
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--navy-50);
+  -webkit-text-stroke: 1.5px var(--navy-600);
+  margin-bottom: 20px;
+}
+.goal-want-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-600);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.goal-want-label::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--accent-500);
+}
+.goal-title {
+  font-family: var(--font-serif-jp);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.goal-title .highlight {
+  background: linear-gradient(transparent 60%, rgba(96, 165, 250, 0.25) 60%);
+  padding: 0 4px;
+}
+.goal-desc {
+  font-size: 15px;
+  color: var(--gray-700);
+  line-height: 2;
+  margin-bottom: 24px;
+}
+.goal-outcome {
+  background: var(--accent-50);
+  border-left: 3px solid var(--accent-500);
+  padding: 20px 24px;
+  border-radius: 4px;
+  margin-bottom: 28px;
+}
+.goal-outcome-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-700);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.goal-outcome-label::before {
+  content: '✓';
+  width: 18px;
+  height: 18px;
+  background: var(--accent-500);
+  color: var(--white);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+.goal-outcome-text {
+  font-size: 14px;
+  color: var(--navy-900);
+  font-weight: 500;
+  line-height: 1.9;
+}
+
+/* サービス側 */
+.goal-services { position: relative; }
+.goal-services-inner {
+  background: var(--navy-50);
+  padding: 32px;
+  border-radius: 8px;
+  position: relative;
+}
+.goal-services-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy-700);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.goal-services-label::before {
+  content: '';
+  width: 20px;
+  height: 1.5px;
+  background: var(--accent-500);
+}
+.goal-services-heading {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.goal-services-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.goal-service-item {
+  background: var(--white);
+  padding: 16px 20px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.25s;
+}
+.goal-service-item:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+.goal-service-item.is-plain { cursor: default; }
+.goal-service-item.is-plain:hover { transform: none; box-shadow: none; }
+.goal-service-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 4px;
+}
+.goal-service-desc {
+  font-size: 12px;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+.goal-service-arrow {
+  color: var(--accent-500);
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+.goal-detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  background: var(--navy-900);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.25s;
+}
+.goal-detail-btn::after { content: '→'; transition: transform 0.2s; }
+.goal-detail-btn:hover { background: var(--accent-600); }
+.goal-detail-btn:hover::after { transform: translateX(4px); }
+.goal-note {
+  font-size: 11px;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin: 12px 0 16px;
+}
+.goal-service-note {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--gray-500);
+  margin-top: 8px;
+  line-height: 1.4;
+  background: var(--navy-50);
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 0;
+}
+.goal-service-detail {
+  color: var(--accent-600);
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-left: 16px;
+  white-space: nowrap;
+  transition: transform 0.2s;
+}
+.goal-service-item:hover .goal-service-detail { transform: translateX(2px); }
+.goal-img-placeholder {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, var(--navy-700), var(--navy-900));
+  border-radius: 6px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy-100);
+  position: relative;
+  overflow: hidden;
+}
+/* 画像入りカードは本文側と同じ高さまで伸ばし、画像エリアを縦に広げる */
+.goal-row:has(.goal-img-placeholder) { align-items: stretch; }
+.goal-row:has(.goal-img-placeholder) .goal-services { display: flex; }
+.goal-row:has(.goal-img-placeholder) .goal-services-inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.goal-row:has(.goal-img-placeholder) .goal-img-placeholder {
+  flex: 1;
+  height: auto;
+  min-height: 200px;
+}
+.goal-img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.goal-img-label {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  color: var(--accent-400);
+  font-weight: 500;
+}
+
+/* CTAバー */
+.conversion-bar {
+  background: linear-gradient(120deg, var(--navy-900) 0%, var(--navy-700) 100%);
+  padding: 36px 0;
+  position: relative;
+  overflow: hidden;
+}
+.conversion-bar::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent 70%);
+}
+.conversion-bar-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.conversion-bar-text { color: var(--white); }
+.conversion-bar-title {
+  font-family: var(--font-serif-jp);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+.conversion-bar-sub {
+  font-size: 14px;
+  color: var(--navy-100);
+  line-height: 1.8;
+}
+.conversion-bar-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn-conv-primary {
+  background: var(--accent-500);
+  color: var(--white);
+  padding: 14px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-conv-primary:hover {
+  background: var(--accent-600);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+}
+.btn-conv-secondary {
+  background: transparent;
+  color: var(--white);
+  padding: 14px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 4px;
+  transition: all 0.25s;
+}
+.btn-conv-secondary:hover {
+  background: var(--white);
+  color: var(--navy-900);
+}
+
+/* サービス */
+.services {
+  background: var(--gray-50);
+  padding: 100px 0;
+  position: relative;
+}
+.service-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 48px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+.service-tab {
+  padding: 22px 32px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-500);
+}
+.service-tab svg { width: 22px; height: 22px; }
+.service-tab.active {
+  background: var(--navy-900);
+  color: var(--white);
+  border-color: var(--navy-900);
+}
+.service-tab.active svg { color: var(--accent-400); }
+.service-tab:not(.active):hover {
+  color: var(--navy-900);
+  background: var(--navy-50);
+}
+.service-panel {
+  background: var(--white);
+  padding: 56px 48px;
+  border-radius: 0 0 8px 8px;
+  border: 1px solid var(--gray-200);
+  border-top: none;
+  display: none;
+  min-height: 600px;
+}
+.service-panel.active { display: block; }
+.service-panel-intro {
+  text-align: center;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px dashed var(--gray-300);
+}
+.service-panel-intro h3 {
+  font-family: var(--font-serif-jp);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.service-panel-intro p {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 2;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* OEMフロー */
+.oem-flow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.oem-stage { position: relative; text-align: center; }
+.oem-stage:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 80px;
+  right: -14px;
+  width: 28px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-500), transparent);
+  z-index: 1;
+}
+.oem-stage-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 16px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+}
+.oem-stage-icon {
+  width: 100%;
+  height: 110px;
+  background: var(--navy-50);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: var(--navy-700);
+  transition: all 0.3s;
+}
+.oem-stage:hover .oem-stage-icon {
+  background: var(--accent-50);
+  color: var(--accent-600);
+  transform: translateY(-3px);
+}
+.oem-stage-icon svg { width: 56px; height: 56px; }
+.oem-stage-issue-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-600);
+  margin-bottom: 6px;
+}
+.oem-stage-issue {
+  font-size: 12px;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 14px;
+  min-height: 48px;
+  padding-left: 18px;
+  position: relative;
+}
+.oem-stage-issue::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-500);
+  font-weight: 700;
+}
+.oem-stage-support {
+  padding-top: 14px;
+  border-top: 1px dashed var(--gray-300);
+}
+.oem-stage-support-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-600);
+  margin-bottom: 8px;
+}
+.oem-stage-support a {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy-900);
+  display: inline-block;
+  padding: 4px 0;
+  border-bottom: 1.5px solid var(--accent-500);
+  transition: all 0.2s;
+  line-height: 1.6;
+}
+.oem-stage-support a::after { content: ' ›'; color: var(--accent-600); font-weight: 700; }
+.oem-stage-support a:hover { color: var(--accent-600); }
+.oem-stage-support .oem-plain {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  display: inline-block;
+  padding: 4px 0;
+  line-height: 1.6;
+}
+.oem-stage-support a:hover { color: var(--accent-600); }
+
+/* ブランド成長カード */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.brand-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  padding: 24px 20px;
+  transition: all 0.3s;
+}
+.brand-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-500);
+  box-shadow: var(--shadow-lg);
+}
+.brand-card-image {
+  width: 100%;
+  height: 110px;
+  background: var(--navy-50);
+  border-radius: 4px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy-600);
+  transition: all 0.3s;
+}
+.brand-card:hover .brand-card-image {
+  background: var(--accent-50);
+  color: var(--accent-600);
+}
+.brand-card-image svg { width: 56px; height: 56px; opacity: 0.85; }
+.brand-card-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 14px;
+  line-height: 1.6;
+  min-height: 44px;
+}
+.brand-card-issue-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-600);
+  margin-bottom: 6px;
+}
+.brand-card-issue {
+  font-size: 12px;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 14px;
+  min-height: 64px;
+  padding-left: 18px;
+  position: relative;
+}
+.brand-card-issue::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-500);
+  font-weight: 700;
+}
+.brand-card-support {
+  padding-top: 14px;
+  border-top: 1px dashed var(--gray-300);
+}
+.brand-card-support-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-600);
+  margin-bottom: 8px;
+}
+.brand-card-support a {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy-900);
+  display: inline-block;
+  padding: 3px 0;
+  border-bottom: 1.5px solid var(--accent-500);
+  transition: all 0.2s;
+  line-height: 1.6;
+}
+.brand-card-support a::after { content: ' ›'; color: var(--accent-600); font-weight: 700; }
+.brand-card-support a:hover { color: var(--accent-600); }
+.brand-card-support .brand-plain {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  display: inline-block;
+  padding: 3px 0;
+  line-height: 1.6;
+}
+
+/* フロー（チーム紹介削除） */
+.flow .section-header { margin-bottom: 40px; }
+.flow {
+  background: var(--navy-900);
+  color: var(--white);
+  padding: 72px 0;
+  position: relative;
+  overflow: hidden;
+}
+.flow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.08), transparent 60%);
+}
+.flow .section-title { color: var(--white); }
+.flow .section-subtitle { color: var(--navy-100); }
+.flow .section-title-mark { background: var(--accent-400); }
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+  margin-top: 32px;
+}
+.flow-step {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 24px 18px;
+  border-radius: 6px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.flow-step:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--accent-500);
+  transform: translateY(-4px);
+}
+.flow-step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-500);
+  font-size: 20px;
+  z-index: 2;
+}
+.flow-step-num {
+  font-family: var(--font-en);
+  font-size: 12px;
+  color: var(--accent-400);
+  letter-spacing: 0;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.flow-step-title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.flow-step-title span { text-align: center; }
+.flow-step-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 14px;
+  color: var(--accent-400);
+}
+.flow-step-icon svg { width: 100%; height: 100%; display: block; }
+.flow-step-link {
+  font-size: 11px;
+  color: var(--accent-400);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.flow-step-link::before {
+  content: '▶';
+  font-size: 8px;
+}
+.flow-note {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--navy-100);
+}
+.flow-note .lock { color: var(--accent-400); margin-right: 6px; }
+
+/* 事例カルーセル */
+.cases {
+  background: var(--white);
+  padding: 100px 0;
+  overflow: hidden;
+}
+.cases-header { margin-bottom: 48px; }
+.cases-header .section-header { margin-bottom: 0; }
+.cases-carousel-wrap { overflow: hidden; position: relative; padding: 20px 0; }
+.cases-carousel {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.case-card {
+  flex: 0 0 calc(33.333% - 16px);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+/* 両端のカードを小さく・薄く見せて「まだ続きがある」と分からせる */
+.case-card.is-edge {
+  transform: scale(0.88);
+  opacity: 0.55;
+}
+.case-card.is-active:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.case-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+.case-card.is-active:hover::before { transform: scaleX(1); }
+.case-image {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, var(--navy-700), var(--navy-900));
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.case-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.case-image-icon {
+  position: relative;
+  z-index: 1;
+  color: var(--accent-400);
+  opacity: 0.6;
+}
+.case-image-icon svg { width: 60px; height: 60px; }
+.case-body { padding: 28px 26px; }
+.case-tag {
+  display: inline-block;
+  background: var(--accent-50);
+  color: var(--accent-700);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+}
+.case-category {
+  display: inline-block;
+  background: var(--navy-900);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 14px;
+  margin-right: 6px;
+}
+.case-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+.case-block {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--gray-200);
+}
+.case-block:last-of-type { border-bottom: none; padding-bottom: 0; }
+.case-block-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-600);
+  margin-bottom: 6px;
+}
+.case-block-text {
+  font-size: 12px;
+  color: var(--gray-700);
+  line-height: 1.9;
+}
+.case-services { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+.case-service-chip {
+  background: var(--navy-50);
+  color: var(--navy-700);
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+.case-result-highlight {
+  background: var(--accent-50);
+  color: var(--navy-900);
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.8;
+  border-left: 3px solid var(--accent-500);
+}
+.case-link {
+  margin-top: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy-900);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.case-link::after { content: '→'; transition: transform 0.2s; }
+.case-card.is-active:hover .case-link::after { transform: translateX(4px); }
+
+/* カルーセル操作部：ボタン中央＋ドット */
+.cases-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 40px;
+}
+.cases-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.cases-nav-btn {
+  width: 56px;
+  height: 56px;
+  border: 1.5px solid var(--gray-300);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  color: var(--navy-900);
+  font-size: 22px;
+}
+.cases-nav-btn:hover {
+  background: var(--navy-900);
+  color: var(--white);
+  border-color: var(--navy-900);
+  transform: scale(1.05);
+}
+.cases-dots { display: flex; justify-content: center; gap: 8px; }
+.cases-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gray-300);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.cases-dot.active {
+  background: var(--accent-500);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* お役立ち情報（ご相談前の確認） */
+.info { background: var(--navy-50); padding: 100px 0; }
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.info-card {
+  background: var(--white);
+  padding: 40px 32px;
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.3s;
+}
+.info-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.info-card-num {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: var(--font-en);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-500);
+}
+.info-card-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--navy-900);
+  color: var(--accent-400);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.info-card-icon svg { width: 26px; height: 26px; }
+.info-card h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.info-card p {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 2;
+  margin-bottom: 24px;
+}
+.info-card-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-600);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--accent-500);
+  padding-bottom: 4px;
+}
+.info-card-link:hover { color: var(--accent-700); }
+
+/* ニュースセクション（新規） */
+.news { background: var(--white); padding: 100px 0; }
+.news-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+.news-header .section-header { margin-bottom: 0; flex: 1; }
+.news-all-btn {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-900);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border: 1.5px solid var(--navy-900);
+  border-radius: 4px;
+  transition: all 0.25s;
+}
+.news-all-btn::after { content: '→'; transition: transform 0.2s; }
+.news-all-btn:hover {
+  background: var(--navy-900);
+  color: var(--white);
+}
+.news-all-btn:hover::after { transform: translateX(4px); }
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+}
+.news-item {
+  display: grid;
+  grid-template-columns: 130px 110px 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--gray-200);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.news-item:hover {
+  background: var(--navy-50);
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0 -16px;
+  border-radius: 4px;
+}
+.news-item:first-child { border-top: 1px solid var(--gray-200); }
+.news-date {
+  font-family: var(--font-en);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-500);
+}
+.news-category {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-700);
+  background: var(--accent-50);
+  padding: 5px 12px;
+  border-radius: 3px;
+  text-align: center;
+  width: fit-content;
+}
+.news-category.cat-event { color: #166534; background: #dcfce7; }
+.news-category.cat-update { color: #92400e; background: #fef3c7; }
+.news-category.cat-notice { color: #6d28d9; background: #ede9fe; }
+.news-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--navy-900);
+  line-height: 1.7;
+  transition: color 0.2s;
+}
+.news-item:hover .news-title { color: var(--accent-600); }
+
+/* 最終CTA */
+.cta-section {
+  background: linear-gradient(135deg, var(--navy-950), var(--navy-700));
+  color: var(--white);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12), transparent 70%);
+  transform: translateY(-50%);
+}
+.cta-inner { position: relative; z-index: 1; text-align: center; }
+.cta-inner h2 {
+  font-family: var(--font-serif-jp);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.cta-inner p {
+  font-size: 16px;
+  color: var(--navy-100);
+  margin-bottom: 40px;
+  line-height: 2;
+}
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* フッター */
+.footer {
+  background: var(--navy-950);
+  color: var(--navy-100);
+  padding: 72px 0 32px;
+  border-top: 1px solid var(--navy-700);
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+.footer-brand .logo-img {
+  filter: brightness(0) invert(1);
+  height: 40px;
+  margin-bottom: 20px;
+}
+.footer-brand-text {
+  font-size: 13px;
+  color: var(--navy-100);
+  line-height: 2;
+  margin-bottom: 24px;
+}
+.footer-socials { display: flex; gap: 12px; }
+.footer-social {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+.footer-social:hover { background: var(--accent-500); color: var(--white); }
+.footer-col h5 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a {
+  font-size: 13px;
+  color: var(--navy-100);
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: var(--accent-400); }
+.footer-bottom {
+  border-top: 1px solid var(--navy-700);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--navy-100);
+}
+.footer-bottom-links { display: flex; gap: 28px; }
+
+/* ライトボックス */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 22, 41, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+.lightbox.active { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.lightbox-inner {
+  background: var(--white);
+  max-width: 720px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--navy-900);
+  z-index: 2;
+  transition: all 0.2s;
+}
+.lightbox-close:hover { background: var(--white); transform: rotate(90deg); }
+.lightbox-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--navy-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.lightbox-video-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 28px;
+  transition: all 0.3s;
+}
+.lightbox-video:hover .lightbox-video-icon { background: var(--accent-500); border-color: var(--accent-500); transform: scale(1.1); }
+.lightbox-content { padding: 32px; }
+.lightbox-content h3 {
+  font-family: var(--font-serif-jp);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 12px;
+}
+.lightbox-content p {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 2;
+  margin-bottom: 20px;
+}
+.lightbox-actions { display: flex; gap: 12px; }
+
+/* レスポンシブ */
+@media (min-width: 1025px) and (max-width: 1480px) {
+  /* サイドナビ展開時に本文と被らないよう、コンテンツをわずかに右へ */
+  .hero-inner,
+  .goals .container,
+  .services .container,
+  .flow .container,
+  .cases .container,
+  .info .container,
+  .news .container,
+  .stats .container,
+  .audience-tags,
+  .conversion-bar-inner,
+  .cta-inner,
+  .footer .container,
+  .header-inner {
+    padding-left: 56px;
+  }
+  /* サイドナビの常時ラベルが本文に被らないよう、通常はドットのみ表示（ホバー時に展開） */
+  .side-nav:not(:hover) .side-nav-item.active .side-nav-label { max-width: 0; opacity: 0; }
+}
+@media (max-width: 1024px) {
+  .side-nav { display: none; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual {
+    position: absolute;
+    top: 28px;
+    right: -84px;
+    z-index: 0;
+    width: min(58vw, 420px);
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  .hero-image-wrap { max-width: none; }
+  .hero-image-main { border-color: rgba(255, 255, 255, 0.08); }
+  .hero-values-grid { grid-template-columns: repeat(2, 1fr); }
+  .hv-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 16px; }
+  .stat-item:not(:last-child)::after { display: none; }
+  .goal-row, .goal-row.reverse { grid-template-columns: 1fr; gap: 32px; }
+  .goal-row.reverse .goal-content { order: 1; }
+  .goal-row.reverse .goal-services { order: 2; }
+  .flow-steps { grid-template-columns: repeat(3, 1fr); }
+  .flow-step:nth-child(3)::after { display: none; }
+  .oem-flow { grid-template-columns: repeat(2, 1fr); }
+  .oem-stage::after { display: none !important; }
+  .brand-grid { grid-template-columns: repeat(2, 1fr); }
+  .case-card { flex: 0 0 calc(50% - 12px); }
+  .info-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .nav-main { display: none; }
+  .news-item { grid-template-columns: 100px 90px 1fr; gap: 16px; }
+}
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .header-top { display: none; }
+  .header-top-inner { justify-content: center; gap: 16px; font-size: 12px; }
+  .header-inner { height: 72px; }
+  .logo-img { height: 36px; }
+  .header-cta { gap: 0; }
+  .header-cta .btn-primary { display: none; }
+  .hero { padding: 60px 0 0; }
+  .hero-visual { display: none; }
+  .hero-intro,
+  .hero-lead,
+  .audience-tags-title {
+    overflow-wrap: anywhere;
+  }
+  .mobile-break { display: block; }
+  .hero-cta { flex-direction: column; gap: 12px; }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-values-grid { grid-template-columns: 1fr; }
+  .flow-steps { grid-template-columns: repeat(2, 1fr); }
+  .flow-step::after { display: none !important; }
+  .oem-flow, .brand-grid { grid-template-columns: 1fr; }
+  .service-panel { padding: 32px 20px; }
+  .case-card { flex: 0 0 calc(100% - 16px); }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 16px; }
+  .header-cta .btn-text { display: none; }
+  .cases-header, .news-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .audience-tags-list { gap: 8px; }
+  .audience-tags-title { font-size: 20px; line-height: 1.55; }
+  .audience-tag {
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    font-size: 12px;
+    padding: 11px 18px;
+  }
+  .news-item { grid-template-columns: 1fr; gap: 8px; padding: 20px 0; }
+}
+
+/* Formal Japanese B2B redesign layer */
+:root {
+  --jp-ink: #071a31;
+  --jp-line: #d9e4f0;
+  --jp-surface: #ffffff;
+  --jp-surface-soft: #f6f9fc;
+  --jp-gold: #c59a36;
+  --jp-gold-soft: #fff7df;
+}
+
+body {
+  background:
+    linear-gradient(180deg, #ffffff 0%, var(--jp-surface-soft) 100%);
+  text-rendering: optimizeLegibility;
+}
+
+.container { max-width: 1188px; }
+
+.header-top {
+  background: #061426;
+  font-size: 12px;
+  padding: 7px 0;
+}
+.header-top-inner { gap: 22px; }
+.header-top-dl {
+  border-color: rgba(184, 204, 224, 0.28);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.header {
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid rgba(10, 37, 64, 0.12);
+  box-shadow: 0 10px 30px rgba(7, 26, 49, 0.06);
+}
+.header-inner { height: 78px; }
+.logo-img { height: 42px; }
+.nav-main { gap: 20px; }
+.nav-main > li > a {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 26px 0;
+}
+.nav-main > li > a::after {
+  bottom: 17px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-500), var(--jp-gold));
+}
+.nav-sub {
+  border: 1px solid rgba(10, 37, 64, 0.12);
+  border-top: 3px solid var(--jp-gold);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 22px 44px rgba(7, 26, 49, 0.14);
+}
+.nav-sub li a { line-height: 1.6; }
+.btn-primary,
+.btn-hero-primary,
+.btn-conv-primary {
+  border-radius: 6px;
+  background: linear-gradient(135deg, #2f80ed 0%, #1d4ed8 100%);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
+}
+.btn-text {
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+.btn-text:hover {
+  background: var(--accent-50);
+  border-color: var(--accent-100);
+}
+
+.hero-inner { gap: 58px; }
+.hero-content { max-width: 604px; }
+.hero-intro { letter-spacing: 0; }
+.hero-lead { letter-spacing: 0; }
+
+.hero .audience-tags {
+  margin-top: 10px;
+  padding: 30px 40px 26px;
+  border: 1px solid rgba(184, 204, 224, 0.16);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.audience-tags-title {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+.audience-tag {
+  border-radius: 999px;
+  border-color: rgba(184, 204, 224, 0.28);
+  background: rgba(255, 255, 255, 0.075);
+  padding: 12px 22px;
+  font-weight: 700;
+}
+
+.hero-values-bar {
+  width: min(1188px, calc(100% - 64px));
+  margin: 0 auto;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+  border: 1px solid rgba(184, 204, 224, 0.16);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+.hero-values-grid {
+  gap: 1px;
+  background: rgba(184, 204, 224, 0.1);
+}
+.hero-values-bar .container {
+  max-width: none;
+  padding: 0;
+}
+.hv-item {
+  background: rgba(255, 255, 255, 0.045);
+  padding: 28px 22px 30px;
+  border-right: none;
+}
+.hv-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  color: var(--accent-400);
+  background: rgba(96, 165, 250, 0.08);
+}
+.hv-title { font-size: 13px; }
+.hv-desc { color: rgba(217, 228, 240, 0.82); }
+
+.stats {
+  background:
+    linear-gradient(180deg, var(--navy-900) 0 30px, #f7fafc 30px 100%);
+  padding: 0 0 64px;
+}
+.stats-grid { gap: 18px; }
+.stat-item {
+  background: var(--jp-surface);
+  border: 1px solid rgba(10, 37, 64, 0.1);
+  border-radius: 8px;
+  padding: 26px 20px 24px;
+  box-shadow: 0 14px 32px rgba(7, 26, 49, 0.055);
+  transform: translateY(-18px);
+}
+.stat-item:not(:last-child)::after { display: none; }
+.stat-number { color: var(--jp-ink); }
+.stat-label { font-weight: 700; }
+
+.section-header {
+  margin-bottom: 52px;
+}
+.section-title {
+  letter-spacing: 0;
+}
+.section-title-mark {
+  width: 6px;
+  height: 30px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent-500), var(--jp-gold));
+}
+.section-subtitle {
+  color: #516176;
+  line-height: 2.05;
+}
+
+.goals {
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f7fafc 48%, #ffffff 100%);
+  padding: 94px 0;
+}
+.goals::before {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.08), transparent 70%);
+}
+.goals-list { gap: 0; }
+.goal-row {
+  gap: 48px;
+  padding: 64px 0;
+  border-bottom: 1px solid rgba(10, 37, 64, 0.1);
+}
+.goal-row:first-child { padding-top: 20px; }
+.goal-num {
+  font-size: 64px;
+  color: transparent;
+  -webkit-text-stroke: 1.25px rgba(35, 74, 125, 0.44);
+  margin-bottom: 14px;
+}
+.goal-want-label { color: var(--accent-700); }
+.goal-want-label::before {
+  height: 1px;
+  background: var(--jp-gold);
+}
+.goal-title {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.7;
+}
+.goal-title .highlight {
+  background: linear-gradient(transparent 64%, rgba(247, 199, 95, 0.34) 64%);
+}
+.goal-desc {
+  color: #4d5c70;
+  line-height: 2.08;
+}
+.goal-outcome {
+  background: #f4f8ff;
+  border: 1px solid rgba(59, 130, 246, 0.16);
+  border-left: 4px solid var(--accent-500);
+  border-radius: 6px;
+}
+.goal-services-inner {
+  background: var(--jp-surface);
+  border: 1px solid rgba(10, 37, 64, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 18px 42px rgba(7, 26, 49, 0.075);
+}
+.goal-services-label::before { background: var(--jp-gold); }
+.goal-services-heading { font-size: 16px; }
+.goal-service-item {
+  border: 1px solid rgba(10, 37, 64, 0.08);
+  border-radius: 6px;
+  box-shadow: 0 8px 18px rgba(7, 26, 49, 0.035);
+}
+.goal-service-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 12px 24px rgba(7, 26, 49, 0.08);
+}
+.goal-img-placeholder {
+  min-height: 250px;
+  border-radius: 8px;
+  border: 1px solid rgba(10, 37, 64, 0.1);
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+}
+.goals-list .goal-row:nth-of-type(3) .goal-img-placeholder {
+  background-image:
+    linear-gradient(180deg, rgba(7, 26, 49, 0.06), rgba(7, 26, 49, 0.18)),
+    url('rakumade-visual-team.png');
+}
+.goals-list .goal-row:nth-of-type(4) .goal-img-placeholder {
+  background-image:
+    linear-gradient(180deg, rgba(7, 26, 49, 0.08), rgba(7, 26, 49, 0.2)),
+    url('rakumade-visual-advisor.png');
+}
+.goals-list .goal-row:nth-of-type(5) .goal-img-placeholder {
+  background-image:
+    linear-gradient(180deg, rgba(7, 26, 49, 0.02), rgba(7, 26, 49, 0.1)),
+    url('rakumade-visual-system.png');
+}
+.goal-img-placeholder::before {
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(6, 22, 41, 0.16) 100%);
+  background-size: auto;
+}
+.goal-img-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.conversion-bar {
+  background:
+    linear-gradient(115deg, rgba(6, 22, 41, 0.98), rgba(13, 45, 80, 0.96)),
+    var(--navy-900);
+  border-top: 1px solid rgba(184, 204, 224, 0.12);
+  border-bottom: 1px solid rgba(184, 204, 224, 0.12);
+}
+.conversion-bar-inner { align-items: center; }
+
+.services {
+  background:
+    linear-gradient(180deg, #f7fafc 0%, #eef3f8 100%);
+  padding: 94px 0;
+}
+.service-tabs {
+  border: 1px solid rgba(10, 37, 64, 0.12);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+.service-tab {
+  border: none;
+  border-right: 1px solid rgba(10, 37, 64, 0.1);
+  background: #fdfefe;
+}
+.service-tab:last-child { border-right: none; }
+.service-tab.active {
+  background: linear-gradient(135deg, #071a31, #12345a);
+}
+.service-panel {
+  border-color: rgba(10, 37, 64, 0.12);
+  box-shadow: 0 24px 48px rgba(7, 26, 49, 0.08);
+}
+.service-panel-intro {
+  background: #f7fafc;
+  border: 1px solid rgba(10, 37, 64, 0.08);
+  border-radius: 8px;
+  padding: 28px;
+}
+.oem-flow { gap: 14px; }
+.oem-stage {
+  background: #ffffff;
+  border: 1px solid rgba(10, 37, 64, 0.09);
+  border-radius: 8px;
+  padding: 20px 14px 18px;
+  box-shadow: 0 10px 22px rgba(7, 26, 49, 0.045);
+}
+.oem-stage:not(:last-child)::after { display: none; }
+.oem-stage-icon {
+  height: 96px;
+  border: 1px solid rgba(10, 37, 64, 0.06);
+}
+.brand-card {
+  border-radius: 8px;
+  box-shadow: 0 10px 22px rgba(7, 26, 49, 0.045);
+}
+.brand-card-image {
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 80% 15%, rgba(247, 199, 95, 0.22), transparent 28%),
+    linear-gradient(135deg, #eef6ff, #f8fbff);
+}
+
+.flow {
+  background:
+    linear-gradient(135deg, #061629 0%, #0a2540 62%, #153c68 100%);
+  padding: 88px 0;
+}
+.flow-steps { gap: 12px; }
+.flow-step {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.flow-step-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.cases {
+  background: #ffffff;
+  padding: 94px 0;
+}
+.case-card {
+  border-radius: 8px;
+  box-shadow: 0 14px 30px rgba(7, 26, 49, 0.055);
+}
+.case-image {
+  height: 188px;
+  background-size: cover;
+  background-position: center;
+}
+.case-card.case-apparel .case-image {
+  background-image:
+    linear-gradient(135deg, rgba(6, 22, 41, 0.08), rgba(6, 22, 41, 0.02)),
+    url('rakumade-case-apparel.svg');
+}
+.case-card.case-cosme .case-image {
+  background-image:
+    linear-gradient(135deg, rgba(6, 22, 41, 0.08), rgba(6, 22, 41, 0.02)),
+    url('rakumade-case-cosme.svg');
+}
+.case-card.case-lifestyle .case-image {
+  background-image:
+    linear-gradient(135deg, rgba(6, 22, 41, 0.08), rgba(6, 22, 41, 0.02)),
+    url('rakumade-case-lifestyle.svg');
+}
+.case-card.case-outdoor .case-image {
+  background-image:
+    linear-gradient(135deg, rgba(6, 22, 41, 0.08), rgba(6, 22, 41, 0.02)),
+    url('rakumade-case-outdoor.svg');
+}
+.case-card.case-bag .case-image {
+  background-image:
+    linear-gradient(135deg, rgba(6, 22, 41, 0.08), rgba(6, 22, 41, 0.02)),
+    url('rakumade-case-bag.svg');
+}
+.case-card.case-gadget .case-image {
+  background-image:
+    linear-gradient(135deg, rgba(6, 22, 41, 0.08), rgba(6, 22, 41, 0.02)),
+    url('rakumade-case-gadget.svg');
+}
+.case-image::before {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(6,22,41,0.06));
+  background-size: auto;
+}
+.case-image-icon {
+  display: none;
+}
+.case-body { padding: 26px 24px 28px; }
+
+.info {
+  background:
+    linear-gradient(180deg, #eef3f8 0%, #f7fafc 100%);
+}
+.info-card {
+  border: 1px solid rgba(10, 37, 64, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(7, 26, 49, 0.055);
+}
+.info-card-icon {
+  border-radius: 8px;
+  background: linear-gradient(135deg, #071a31, #12345a);
+}
+
+.news {
+  background: #ffffff;
+}
+.news-item {
+  border-color: rgba(10, 37, 64, 0.1);
+}
+.news-category {
+  border-radius: 999px;
+}
+
+.cta-section {
+  background:
+    linear-gradient(135deg, rgba(6, 22, 41, 0.96), rgba(17, 51, 88, 0.94)),
+    url('rakumade-hero-network-bg.png') center / cover;
+}
+.cta-inner {
+  max-width: 820px;
+}
+
+.footer {
+  background: #061426;
+}
+.footer-top {
+  gap: 36px;
+}
+.footer-col h5 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(184, 204, 224, 0.18);
+}
+.footer-col ul li a {
+  line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+  .header-inner { height: 72px; }
+  .hero-inner { gap: 36px; }
+  .hero .audience-tags { padding: 30px 28px 34px; }
+  .hero-values-grid { grid-template-columns: repeat(2, 1fr); }
+  .goal-row,
+  .goal-row.reverse {
+    gap: 28px;
+    padding: 52px 0;
+  }
+  .service-tabs { grid-template-columns: 1fr; }
+  .service-tab { border-right: none; border-bottom: 1px solid rgba(10, 37, 64, 0.1); }
+  .oem-flow { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 18px; }
+  .header { box-shadow: 0 8px 24px rgba(7, 26, 49, 0.08); }
+  .header-inner {
+    height: 64px;
+    padding-left: 18px;
+    padding-right: 18px;
+    justify-content: space-between;
+    position: relative;
+  }
+  .logo-img { height: 28px; }
+  .header-cta {
+    display: flex;
+    margin-left: auto;
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .header-cta .btn-text {
+    display: inline-flex !important;
+    padding: 8px 11px;
+    font-size: 12px;
+    border-color: rgba(37, 99, 235, 0.22);
+    background: var(--accent-50);
+    color: var(--accent-700);
+  }
+  .hero {
+    padding: 48px 0 0;
+  }
+  .hero h1 {
+    font-size: clamp(1.85rem, 8.4vw, 2.35rem);
+    line-height: 1.45;
+    margin-bottom: 22px;
+    max-width: 100%;
+  }
+  .hero-intro {
+    font-size: 15px;
+    line-height: 1.85;
+    margin-bottom: 18px;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .hero-lead {
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 30px;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    min-height: 58px;
+    padding: 15px 18px;
+    border-radius: 6px;
+  }
+  .hero .audience-tags {
+    margin-top: 28px;
+    padding: 26px 18px 30px;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+  .hero-values-bar {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+  .audience-tag {
+    width: 100%;
+    padding: 12px 14px;
+  }
+  .hero-values-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: 100%;
+  }
+  .hv-item {
+    padding: 24px 12px;
+    min-width: 0;
+  }
+  .hv-item:last-child { grid-column: 1 / -1; }
+  .hv-title {
+    font-size: 12px;
+    min-height: 42px;
+  }
+  .hv-desc {
+    font-size: 10px;
+  }
+  .stats {
+    padding: 34px 0 44px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .stat-item {
+    padding: 20px 10px;
+  }
+  .stat-number {
+    font-size: 2rem;
+  }
+  .stat-label {
+    font-size: 11px;
+  }
+  .goals,
+  .services,
+  .cases,
+  .info,
+  .news {
+    padding: 64px 0;
+  }
+  .section-header { margin-bottom: 34px; }
+  .section-title {
+    font-size: 1.65rem;
+    line-height: 1.55;
+  }
+  .section-title-mark {
+    height: 24px;
+    margin-right: 10px;
+  }
+  .section-subtitle {
+    font-size: 13px;
+    line-height: 1.95;
+    margin-bottom: 34px;
+  }
+  .goal-row,
+  .goal-row.reverse {
+    padding: 44px 0;
+  }
+  .goal-num {
+    font-size: 44px;
+  }
+  .goal-title {
+    font-size: 1.22rem;
+  }
+  .goal-desc {
+    font-size: 13px;
+  }
+  .goal-services-inner {
+    padding: 22px 18px;
+  }
+  .goal-img-placeholder {
+    min-height: 210px;
+  }
+  .conversion-bar {
+    padding: 30px 0;
+  }
+  .conversion-bar-inner {
+    gap: 22px;
+  }
+  .conversion-bar-btns,
+  .cta-buttons {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .service-panel {
+    padding: 24px 16px;
+  }
+  .service-panel-intro {
+    padding: 22px 16px;
+    text-align: left;
+  }
+  .oem-flow,
+  .brand-grid {
+    grid-template-columns: 1fr;
+  }
+  .flow {
+    padding: 64px 0;
+  }
+  .flow-steps {
+    grid-template-columns: 1fr;
+  }
+  .flow-step {
+    min-height: 118px;
+  }
+  .case-image {
+    height: 168px;
+  }
+  .info-card {
+    padding: 30px 24px;
+  }
+  .news-item:hover {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    background: transparent;
+  }
+  .footer {
+    padding-bottom: 28px;
+  }
+}
+/* Final refinements: section rhythm, navy tone, metrics, icon system */
+.hero {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(83, 132, 180, 0.26), transparent 34%),
+    radial-gradient(circle at 18% 72%, rgba(31, 91, 143, 0.18), transparent 38%),
+    linear-gradient(135deg, #07182c 0%, #08213a 52%, #123a60 100%);
+}
+.hero::before {
+  background:
+    linear-gradient(rgba(184, 204, 224, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 204, 224, 0.03) 1px, transparent 1px),
+    linear-gradient(120deg, transparent 0 42%, rgba(96, 165, 250, 0.055) 52%, transparent 66%);
+  background-size: 96px 96px, 96px 96px, 100% 100%;
+  opacity: 0.62;
+}
+.hero::after {
+  opacity: 0.7;
+  background:
+    linear-gradient(115deg, transparent 0%, rgba(96, 165, 250, 0.075) 44%, rgba(247, 199, 95, 0.055) 53%, transparent 68%);
+}
+.hero .audience-tags {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.hero-values-bar {
+  box-shadow: 0 18px 38px rgba(6, 20, 38, 0.16);
+}
+.stats {
+  position: relative;
+  padding: 58px 0 78px;
+  background:
+    linear-gradient(180deg, #f5f8fb 0%, #ffffff 72%);
+  border-top: 1px solid rgba(10, 37, 64, 0.08);
+}
+.stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: max(32px, calc((100% - 1188px) / 2));
+  right: max(32px, calc((100% - 1188px) / 2));
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), rgba(247, 199, 95, 0.42), transparent);
+}
+.stats-grid {
+  gap: 20px;
+  align-items: stretch;
+}
+.stat-item {
+  transform: none;
+  overflow: hidden;
+  padding: 34px 22px 30px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.98));
+  border: 1px solid rgba(10, 37, 64, 0.1);
+  border-radius: 8px;
+  box-shadow:
+    0 18px 34px rgba(7, 26, 49, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.stat-item::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-500), var(--jp-gold));
+}
+.stats .stat-item::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(59, 130, 246, 0.12) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(247, 199, 95, 0.1), transparent 62%);
+  background-size: 12px 12px, auto;
+  opacity: 0.62;
+  pointer-events: none;
+}
+.stat-number,
+.stat-label {
+  position: relative;
+  z-index: 1;
+}
+.stat-number {
+  color: #071a31;
+}
+.stat-number .unit {
+  color: #2563eb;
+}
+.stat-label {
+  color: #40536a;
+}
+
+.conversion-bar {
+  background:
+    linear-gradient(115deg, rgba(7, 24, 44, 0.98), rgba(17, 56, 91, 0.96));
+}
+.flow {
+  background:
+    radial-gradient(circle at 18% 10%, rgba(96, 165, 250, 0.12), transparent 30%),
+    linear-gradient(135deg, #07182c 0%, #08213a 58%, #123a60 100%);
+}
+.service-tab.active,
+.info-card-icon {
+  background: linear-gradient(135deg, #07182c, #123a60);
+}
+.cta-section {
+  background:
+    linear-gradient(135deg, rgba(7, 24, 44, 0.92), rgba(18, 58, 96, 0.9)),
+    url('rakumade-hero-network-bg.png') center / cover;
+}
+.footer,
+.header-top {
+  background: #07182c;
+}
+
+.hv-icon,
+.oem-stage-icon,
+.flow-step-icon,
+.info-card-icon {
+  border-radius: 8px;
+  border: 1px solid rgba(96, 165, 250, 0.26);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.hv-icon svg,
+.oem-stage-icon svg,
+.flow-step-icon svg,
+.info-card-icon svg {
+  stroke-width: 1.7;
+}
+.oem-stage-icon,
+.flow-step-icon {
+  background:
+    linear-gradient(180deg, rgba(96, 165, 250, 0.09), rgba(255, 255, 255, 0.02));
+  color: var(--accent-400);
+}
+.info-card-icon {
+  color: #ffffff;
+}
+
+.goals-list .goal-row:nth-of-type(5) .goal-img-placeholder {
+  min-height: 330px;
+  position: relative;
+  overflow: hidden;
+  background:
+    url('rakumade-preview-monitor.svg') center / contain no-repeat,
+    linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
+  border: 1px solid rgba(10, 37, 64, 0.1);
+  box-shadow: 0 20px 44px rgba(7, 26, 49, 0.08);
+}
+.goals-list .goal-row:nth-of-type(5) .goal-img-placeholder::before {
+  content: none;
+  position: absolute;
+  z-index: 2;
+  top: 32px;
+  left: 42px;
+  right: 42px;
+  height: 214px;
+  border: 7px solid #07182c;
+  border-bottom-width: 12px;
+  border-radius: 9px 9px 6px 6px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(7,24,44,0.03)),
+    url('rakumade-visual-system.png') center / contain no-repeat,
+    #f8fbff;
+  box-shadow:
+    0 14px 24px rgba(7, 26, 49, 0.14),
+    inset 0 0 0 1px rgba(255,255,255,0.18);
+}
+.goals-list .goal-row:nth-of-type(5) .goal-img-placeholder::after {
+  content: none;
+  position: absolute;
+  z-index: 1;
+  left: 10%;
+  right: 10%;
+  bottom: 26px;
+  height: 82px;
+  border-radius: 0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(203,216,229,0.98)) center 0 / 82px 48px no-repeat,
+    linear-gradient(90deg, rgba(255,255,255,0.2) 0 40%, rgba(255,255,255,0.78) 40% 60%, rgba(255,255,255,0.2) 60% 100%) center 48px / 82% 8px no-repeat,
+    linear-gradient(180deg, #edf3f8 0%, #d8e2ec 55%, #b8c7d5 100%) center 42px / 88% 30px no-repeat,
+    radial-gradient(ellipse at center, rgba(7,26,49,0.2), transparent 68%) center 68px / 92% 16px no-repeat;
+  clip-path: none;
+  box-shadow:
+    0 14px 22px rgba(7, 26, 49, 0.13);
+}
+
+@media (max-width: 640px) {
+  .hero-values-bar {
+    width: 100%;
+    box-shadow: none;
+  }
+  .hero-values-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hv-item:last-child {
+    grid-column: auto;
+  }
+  .stats {
+    padding: 34px 0 52px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .stat-item {
+    padding: 24px 18px 22px;
+  }
+  .goals-list .goal-row:nth-of-type(5) .goal-img-placeholder {
+    min-height: 248px;
+  }
+  .goals-list .goal-row:nth-of-type(5) .goal-img-placeholder::before {
+    top: 24px;
+    left: 20px;
+    right: 20px;
+    height: 154px;
+    border-width: 6px;
+    border-bottom-width: 10px;
+  }
+  .goals-list .goal-row:nth-of-type(5) .goal-img-placeholder::after {
+    left: 10%;
+    right: 10%;
+    bottom: 22px;
+    height: 58px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.92), rgba(203,216,229,0.98)) center 0 / 60px 34px no-repeat,
+      linear-gradient(90deg, rgba(255,255,255,0.2) 0 40%, rgba(255,255,255,0.78) 40% 60%, rgba(255,255,255,0.2) 60% 100%) center 34px / 82% 6px no-repeat,
+      linear-gradient(180deg, #edf3f8 0%, #d8e2ec 55%, #b8c7d5 100%) center 31px / 88% 22px no-repeat,
+      radial-gradient(ellipse at center, rgba(7,26,49,0.2), transparent 68%) center 50px / 92% 12px no-repeat;
+  }
+}
+/* Rakumade glacier-sunrise palette refinement */
+:root {
+  --rk-deep: #071a2d;
+  --rk-navy: #0b2540;
+  --rk-blue: #245f8f;
+  --rk-sky: #5ba8d8;
+  --rk-ice: #eef7fa;
+  --rk-ice-2: #dcecf4;
+  --rk-orange: #e9a15c;
+  --rk-orange-soft: #f8dcc2;
+  --rk-ink: #102033;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 20% 7%, rgba(248, 220, 194, 0.18), transparent 32%),
+    radial-gradient(circle at 78% 16%, rgba(91, 168, 216, 0.24), transparent 34%),
+    linear-gradient(135deg, #071a2d 0%, #0b2540 48%, #16496d 100%);
+}
+.hero::before {
+  background:
+    linear-gradient(rgba(220, 236, 244, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 236, 244, 0.03) 1px, transparent 1px),
+    linear-gradient(122deg, transparent 0 40%, rgba(91, 168, 216, 0.06) 51%, rgba(233, 161, 92, 0.045) 59%, transparent 70%);
+  background-size: 104px 104px, 104px 104px, 100% 100%;
+  opacity: 0.56;
+}
+.hero::after {
+  background:
+    linear-gradient(116deg, transparent 0%, rgba(91, 168, 216, 0.08) 43%, rgba(233, 161, 92, 0.07) 54%, transparent 69%);
+}
+
+.hero .audience-tags {
+  margin-top: 30px;
+  color: var(--rk-ink);
+  background:
+    radial-gradient(circle at 96% 8%, rgba(233, 161, 92, 0.16), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(238, 247, 250, 0.96));
+  border-color: rgba(17, 70, 112, 0.16);
+  border-bottom: none;
+  box-shadow:
+    0 20px 44px rgba(7, 26, 45, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+.audience-tags-title {
+  color: var(--rk-ink);
+}
+.audience-tag {
+  color: #15324d;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(36, 95, 143, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.hero-values-bar {
+  color: var(--rk-ink);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(229, 241, 247, 0.96));
+  border-color: rgba(17, 70, 112, 0.14);
+  box-shadow: 0 18px 38px rgba(7, 26, 45, 0.12);
+}
+.hero-values-grid {
+  background: rgba(91, 168, 216, 0.16);
+}
+.hv-item {
+  background: rgba(255, 255, 255, 0.62);
+}
+.hv-title {
+  color: var(--rk-ink);
+}
+.hv-desc {
+  color: #54687b;
+}
+.hv-icon {
+  color: #2f80c7;
+  background: linear-gradient(180deg, #ffffff, #eef7fa);
+  border-color: rgba(36, 95, 143, 0.2);
+}
+
+.stats {
+  background:
+    linear-gradient(180deg, #f6fbfd 0%, #ffffff 72%);
+  border-top: 1px solid rgba(17, 70, 112, 0.08);
+}
+.stat-item {
+  background:
+    radial-gradient(circle at 92% 82%, rgba(91, 168, 216, 0.08), transparent 34%),
+    linear-gradient(180deg, #ffffff, #f9fcfe);
+}
+.stat-item::before {
+  background: linear-gradient(90deg, #5ba8d8, #e9a15c);
+}
+
+.goals {
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f4fafc 48%, #ffffff 100%);
+}
+.goals .section-header {
+  position: relative;
+  min-height: 300px;
+  margin-bottom: 58px;
+  padding: 54px 48px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 70, 112, 0.1);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 88% 16%, rgba(233, 161, 92, 0.12), transparent 24%),
+    linear-gradient(135deg, #ffffff 0%, #f4fbfd 58%, #eef7fa 100%);
+  box-shadow: 0 18px 42px rgba(7, 26, 45, 0.055);
+}
+.goals .section-header::before {
+  content: '';
+  position: absolute;
+  right: 48px;
+  top: 42px;
+  bottom: 42px;
+  width: 36%;
+  border-radius: 8px;
+  border: 1px solid rgba(91, 168, 216, 0.18);
+  background:
+    radial-gradient(circle at 18% 22%, #5ba8d8 0 5px, transparent 6px),
+    radial-gradient(circle at 50% 50%, #e9a15c 0 5px, transparent 6px),
+    radial-gradient(circle at 82% 28%, #5ba8d8 0 5px, transparent 6px),
+    radial-gradient(circle at 70% 76%, rgba(36, 95, 143, 0.7) 0 5px, transparent 6px),
+    linear-gradient(28deg, transparent 0 38%, rgba(36, 95, 143, 0.2) 39% 41%, transparent 42% 100%),
+    linear-gradient(148deg, transparent 0 44%, rgba(233, 161, 92, 0.24) 45% 47%, transparent 48% 100%),
+    linear-gradient(180deg, rgba(255,255,255,0.78), rgba(238,247,250,0.74));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.goals .section-header::after {
+  content: '';
+  position: absolute;
+  right: 88px;
+  top: 86px;
+  width: 160px;
+  height: 110px;
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(7, 26, 45, 0.88) 0 10px, transparent 10px),
+    linear-gradient(90deg, rgba(91, 168, 216, 0.36) 0 26%, transparent 26% 32%, rgba(233, 161, 92, 0.42) 32% 56%, transparent 56% 62%, rgba(91, 168, 216, 0.28) 62% 100%),
+    linear-gradient(180deg, #ffffff, #f5fbfe);
+  border: 1px solid rgba(17, 70, 112, 0.12);
+  box-shadow: 0 14px 26px rgba(7, 26, 45, 0.08);
+  opacity: 0.9;
+}
+.goals .section-header .section-title,
+.goals .section-header .section-subtitle {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+.goals .section-header .section-subtitle {
+  margin-bottom: 0;
+}
+
+.conversion-bar {
+  padding: 54px 0;
+  color: var(--rk-ink);
+  background:
+    radial-gradient(circle at 8% 50%, rgba(91, 168, 216, 0.16), transparent 28%),
+    radial-gradient(circle at 90% 18%, rgba(233, 161, 92, 0.16), transparent 24%),
+    linear-gradient(135deg, #f7fcfe 0%, #e8f5f8 100%);
+  border-top: 1px solid rgba(17, 70, 112, 0.08);
+  border-bottom: 1px solid rgba(17, 70, 112, 0.08);
+}
+.conversion-bar::before {
+  inset: 0;
+  width: auto;
+  height: auto;
+  transform: none;
+  background:
+    radial-gradient(circle, rgba(36, 95, 143, 0.18) 0 3px, transparent 4px) 0 0 / 74px 74px,
+    linear-gradient(60deg, transparent 0 47%, rgba(91, 168, 216, 0.14) 48% 50%, transparent 51% 100%) 0 0 / 132px 132px,
+    linear-gradient(120deg, transparent 0 47%, rgba(233, 161, 92, 0.12) 48% 50%, transparent 51% 100%) 0 0 / 132px 132px;
+  opacity: 0.65;
+}
+.conversion-bar-inner {
+  padding: 34px 38px;
+  border: 1px solid rgba(17, 70, 112, 0.11);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 18px 38px rgba(7, 26, 45, 0.06),
+    inset 0 1px 0 rgba(255,255,255,0.86);
+}
+.conversion-bar-text {
+  color: var(--rk-ink);
+}
+.conversion-bar-sub {
+  color: #51657a;
+}
+.btn-conv-primary {
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, #2f80ed 0%, #2563eb 74%, #e9a15c 100%);
+  box-shadow: 0 14px 26px rgba(37, 99, 235, 0.18);
+}
+.btn-conv-secondary {
+  border-radius: 6px;
+  color: var(--rk-ink);
+  border-color: rgba(233, 161, 92, 0.58);
+  background: rgba(255,255,255,0.68);
+}
+.btn-conv-secondary:hover {
+  color: var(--rk-ink);
+  background: #fff6ef;
+}
+
+.cta-section {
+  color: var(--rk-ink);
+  background:
+    radial-gradient(circle at 16% 20%, rgba(233, 161, 92, 0.18), transparent 28%),
+    radial-gradient(circle at 76% 28%, rgba(91, 168, 216, 0.18), transparent 30%),
+    linear-gradient(135deg, #f7fcfe 0%, #dcecf4 100%);
+  border-top: 1px solid rgba(17, 70, 112, 0.1);
+}
+.cta-section::before {
+  inset: 0;
+  width: auto;
+  height: auto;
+  transform: none;
+  background:
+    radial-gradient(circle, rgba(36, 95, 143, 0.16) 0 3px, transparent 4px) 0 0 / 80px 80px,
+    linear-gradient(60deg, transparent 0 48%, rgba(91, 168, 216, 0.12) 49% 51%, transparent 52% 100%) 0 0 / 148px 148px;
+}
+.cta-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(360px, 0.82fr);
+  gap: 54px;
+  align-items: center;
+  text-align: left;
+}
+.cta-inner h2,
+.cta-inner p,
+.cta-buttons {
+  grid-column: 1;
+}
+.cta-inner p {
+  color: #40566c;
+}
+.cta-inner::after {
+  content: '';
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  min-height: 286px;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(7, 26, 45, 0.92) 0 12px, transparent 12px),
+    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(238,247,250,0.88));
+  border: 1px solid rgba(17, 70, 112, 0.12);
+  box-shadow:
+    0 22px 44px rgba(7, 26, 45, 0.12),
+    inset 0 1px 0 rgba(255,255,255,0.88);
+}
+.cta-section .btn-hero-secondary {
+  color: var(--rk-ink);
+  border-color: rgba(233, 161, 92, 0.55);
+  background: rgba(255,255,255,0.7);
+}
+
+.cta-section {
+  padding: 68px 0;
+}
+.cta-inner {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+  gap: 42px;
+  max-width: 1080px;
+}
+.cta-inner h2 {
+  margin-bottom: 16px;
+}
+.cta-inner p {
+  margin-bottom: 26px;
+  line-height: 1.85;
+}
+.cta-buttons {
+  justify-content: flex-start;
+}
+.cta-inner::before {
+  content: '';
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  justify-self: center;
+  z-index: 2;
+  width: min(330px, 86%);
+  aspect-ratio: 0.82 / 1;
+  pointer-events: none;
+  background: url('rakumade-preview-support-person-transparent.png') center bottom / contain no-repeat;
+  filter: drop-shadow(0 18px 24px rgba(7, 26, 45, 0.13));
+}
+.cta-inner::after {
+  content: none;
+}
+
+@media (max-width: 1024px) {
+  .goals .section-header {
+    padding: 42px 30px;
+  }
+  .goals .section-header::before,
+  .goals .section-header::after {
+    opacity: 0.24;
+  }
+  .cta-inner {
+    grid-template-columns: 1fr;
+  }
+  .cta-inner::before {
+    grid-column: 1;
+    grid-row: auto;
+    width: min(280px, 70%);
+    justify-self: center;
+  }
+  .cta-inner::after {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero .audience-tags {
+    margin-top: 28px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(238,247,250,0.96));
+  }
+  .hero-values-bar {
+    background: linear-gradient(180deg, #ffffff, #eef7fa);
+  }
+  .goals .section-header {
+    min-height: auto;
+    padding: 34px 22px;
+  }
+  .goals .section-header::before,
+  .goals .section-header::after {
+    display: none;
+  }
+  .conversion-bar-inner {
+    padding: 26px 20px;
+  }
+  .cta-inner {
+    gap: 28px;
+    text-align: left;
+  }
+  .cta-inner::before {
+    width: min(230px, 74%);
+  }
+  .cta-inner::after {
+    min-height: 190px;
+  }
+}
+/* Tight follow-up fixes from visual QA */
+.audience-section {
+  position: relative;
+  z-index: 1;
+  padding: clamp(42px, 5vw, 64px) 0 clamp(46px, 5vw, 62px);
+  min-height: min(860px, calc(100vh - 72px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #eef3f8 0%, #f7fafc 100%);
+  border-top: 1px solid rgba(17, 70, 112, 0.08);
+  border-bottom: 1px solid rgba(17, 70, 112, 0.08);
+}
+.audience-section::before {
+  content: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, rgba(36, 95, 143, 0.12) 0 2px, transparent 3px) 0 0 / 86px 86px,
+    linear-gradient(112deg, transparent 0 47%, rgba(91, 168, 216, 0.08) 48% 50%, transparent 51% 100%) 0 0 / 150px 150px;
+  opacity: 0.55;
+}
+.audience-section .audience-tags,
+.audience-section .hero-values-bar {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, calc(100% - 96px));
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.audience-section .audience-tags {
+  margin-top: 0;
+  padding: clamp(34px, 4vw, 44px) 40px clamp(28px, 3vw, 34px);
+  border: 1px solid rgba(17, 70, 112, 0.12);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  background:
+    radial-gradient(circle at 94% 0%, rgba(233, 161, 92, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,0.94), rgba(241,248,251,0.92));
+  box-shadow: 0 18px 42px rgba(7, 26, 45, 0.07);
+}
+.audience-section .hero-values-bar {
+  overflow: hidden;
+  border: 1px solid rgba(17, 70, 112, 0.12);
+  border-radius: 0 0 10px 10px;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 24px 48px rgba(7, 26, 45, 0.08);
+  backdrop-filter: blur(10px);
+}
+.audience-section .hero-values-bar > .container {
+  width: 100%;
+  padding: 0;
+}
+.audience-section .hero-values-grid {
+  background: transparent;
+}
+.audience-section .hv-item {
+  padding: clamp(26px, 3vw, 32px) 18px clamp(28px, 3vw, 34px);
+  border-right: 1px solid rgba(17, 70, 112, 0.1);
+  background: rgba(255,255,255,0.34);
+}
+.audience-section .hv-item:hover {
+  background: rgba(255,255,255,0.62);
+}
+.audience-section .stats {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, calc(100% - 96px));
+  max-width: 1120px;
+  margin: 34px auto 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+.audience-section .stats .container {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+.audience-section .stats-grid {
+  gap: 18px;
+}
+.audience-section .stat-item {
+  padding: 28px 22px 26px;
+  border: 1px solid rgba(17, 70, 112, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 18px 34px rgba(7, 26, 45, 0.06);
+}
+.audience-section .stat-number {
+  font-size: clamp(2.25rem, 3.1vw, 3rem);
+}
+.audience-section .stat-label {
+  font-weight: 700;
+}
+.audience-section .stat-item:not(:last-child)::after {
+  display: none;
+}
+@media (min-width: 1025px) {
+  .hero .audience-tags,
+  .hero .hero-values-bar {
+    width: min(1080px, calc(100% - 160px));
+    max-width: 1080px;
+  }
+  .stats .container {
+    max-width: 1080px;
+  }
+}
+
+@media (max-width: 900px) {
+  .audience-section {
+    padding: 52px 0 48px;
+  }
+  .audience-section .audience-tags,
+  .audience-section .hero-values-bar,
+  .audience-section .stats {
+    width: min(100% - 32px, 1120px);
+  }
+  .audience-section .audience-tags {
+    padding: 34px 20px 28px;
+  }
+  .audience-section .hero-values-grid {
+    grid-template-columns: 1fr;
+  }
+  .audience-section .hv-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(17, 70, 112, 0.1);
+  }
+  .audience-section .hv-item:last-child {
+    border-bottom: none;
+  }
+}
+
+.goals .section-header {
+  min-height: auto;
+  padding: 64px 64px 58px;
+}
+.goals .section-header::before,
+.goals .section-header::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+.goals .section-header .section-title,
+.goals .section-header .section-subtitle {
+  max-width: 960px;
+}
+
+.case-card {
+  display: flex;
+  flex-direction: column;
+}
+.cases {
+  padding: 72px 0 78px;
+}
+.cases-header {
+  margin-bottom: 28px;
+}
+.cases-header .section-subtitle {
+  margin-bottom: 0;
+}
+.cases-carousel-wrap {
+  padding: 8px 0 12px;
+}
+.case-image {
+  height: 128px;
+}
+.case-body {
+  padding: 16px 20px 18px !important;
+}
+.case-tag,
+.case-category {
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  font-size: 10px;
+}
+.case-card h4 {
+  margin-bottom: 10px;
+  line-height: 1.45;
+  font-size: 14px;
+}
+.case-block {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+}
+.case-block-label {
+  margin-bottom: 4px;
+}
+.case-block-text {
+  line-height: 1.62;
+  font-size: 11px;
+}
+.case-services {
+  margin-top: 4px;
+  gap: 4px;
+}
+.case-service-chip {
+  padding: 2px 7px;
+  font-size: 9px;
+}
+.case-result-highlight {
+  padding: 7px 10px;
+  line-height: 1.52;
+  font-size: 11px;
+}
+.case-link {
+  margin-top: 2px;
+  padding-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .hero .audience-tags,
+  .hero-values-bar {
+    width: 100%;
+    max-width: none;
+  }
+  .case-image {
+    height: 150px;
+  }
+}
+
+/* Final visual rhythm: quieter Japanese corporate cadence */
+.audience-section,
+.goals,
+.info {
+  background: #f7fbfe !important;
+}
+
+.services,
+.cases,
+.news {
+  background: #ffffff !important;
+}
+
+.conversion-bar {
+  padding: 46px 0 !important;
+  color: var(--rk-ink) !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f9fc 100%) !important;
+  border-top: 1px solid rgba(17, 70, 112, 0.08) !important;
+  border-bottom: 1px solid rgba(17, 70, 112, 0.08) !important;
+}
+
+.conversion-bar::before,
+.cta-section::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+.conversion-bar-inner {
+  padding: 30px 36px !important;
+  border: 1px solid rgba(17, 70, 112, 0.1) !important;
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 18px 34px rgba(7, 26, 45, 0.055) !important;
+}
+
+.conversion-bar-text {
+  color: var(--rk-ink) !important;
+}
+
+.conversion-bar-sub {
+  color: #50667b !important;
+}
+
+.goals-list .goal-row:nth-of-type(5) .goal-img-placeholder {
+  min-height: 360px !important;
+  overflow: hidden !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: url('rakumade-preview-monitor.svg') center 52% / 142% auto no-repeat !important;
+  box-shadow: none !important;
+}
+
+.goals-list .goal-row:nth-of-type(5) .goal-img-placeholder::before,
+.goals-list .goal-row:nth-of-type(5) .goal-img-placeholder::after {
+  content: none !important;
+  display: none !important;
+}
+
+.cta-section {
+  min-height: 510px !important;
+  padding: 70px 0 0 !important;
+  overflow: hidden !important;
+  color: var(--rk-ink) !important;
+  background:
+    radial-gradient(circle at 14% 22%, rgba(233, 161, 92, 0.14), transparent 30%),
+    radial-gradient(circle at 78% 24%, rgba(91, 168, 216, 0.18), transparent 32%),
+    linear-gradient(115deg, #ffffff 0%, #f2f9fc 48%, #e2f1f8 100%) !important;
+  border-top: 1px solid rgba(17, 70, 112, 0.08) !important;
+}
+
+.cta-inner {
+  max-width: 1120px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.96fr) minmax(320px, 400px) !important;
+  gap: 54px !important;
+  align-items: end !important;
+  text-align: left !important;
+}
+
+.cta-inner h2,
+.cta-inner p,
+.cta-buttons {
+  grid-column: 1 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.cta-inner p {
+  color: #40566c !important;
+}
+
+.cta-buttons {
+  justify-content: flex-start !important;
+  padding-bottom: 70px !important;
+}
+
+.cta-inner::after {
+  content: none !important;
+  display: none !important;
+}
+
+.cta-inner::before {
+  content: '' !important;
+  grid-column: 2 !important;
+  grid-row: 1 / span 3 !important;
+  align-self: end !important;
+  justify-self: center !important;
+  z-index: 1 !important;
+  width: min(380px, 94%) !important;
+  height: 440px !important;
+  aspect-ratio: auto !important;
+  pointer-events: none !important;
+  background: url('rakumade-preview-support-person-transparent.png') center bottom / contain no-repeat !important;
+  filter: drop-shadow(0 18px 24px rgba(7, 26, 45, 0.13)) !important;
+}
+
+@media (max-width: 1024px) {
+  .cta-section {
+    min-height: auto !important;
+    padding: 58px 0 0 !important;
+  }
+
+  .cta-inner {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    text-align: center !important;
+  }
+
+  .cta-buttons {
+    justify-content: center !important;
+    padding-bottom: 10px !important;
+  }
+
+  .cta-inner::before {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    width: min(310px, 68vw) !important;
+    height: 370px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .conversion-bar {
+    padding: 36px 0 !important;
+  }
+
+  .conversion-bar-inner {
+    padding: 26px 20px !important;
+  }
+
+  .goals-list .goal-row:nth-of-type(5) .goal-img-placeholder {
+    min-height: 270px !important;
+    background-size: 154% auto !important;
+  }
+
+  .cta-inner::before {
+    width: min(260px, 76vw) !important;
+    height: 320px !important;
+  }
+}
+
+/* Final palette trial: light Japanese B2B rhythm with refined floral CTAs */
+:root {
+  --rk-page: #f7fbfd;
+  --rk-hero-blue: #eaf6fb;
+  --rk-hero-blue-2: #f8fcfe;
+  --rk-text-blue: #0f2a3f;
+  --rk-brand-blue: #256fa8;
+  --rk-deep-blue: #123d5c;
+  --rk-warm-orange: #e9a15c;
+}
+
+.hero {
+  color: var(--rk-text-blue) !important;
+  background:
+    radial-gradient(circle at 9% 13%, rgba(233, 161, 92, 0.17), transparent 27%),
+    radial-gradient(circle at 84% 20%, rgba(91, 168, 216, 0.22), transparent 32%),
+    linear-gradient(115deg, #ffffff 0%, var(--rk-hero-blue-2) 42%, var(--rk-hero-blue) 100%) !important;
+}
+
+.hero::before {
+  content: '' !important;
+  display: block !important;
+  background:
+    radial-gradient(circle, rgba(37, 111, 168, 0.13) 0 2px, transparent 3px) 0 0 / 82px 82px,
+    linear-gradient(64deg, transparent 0 47%, rgba(91, 168, 216, 0.12) 48% 50%, transparent 51% 100%) 0 0 / 138px 138px !important;
+  opacity: 0.55 !important;
+}
+
+.hero::after {
+  opacity: 0.28 !important;
+  background: linear-gradient(115deg, transparent 0%, rgba(91, 168, 216, 0.16) 43%, rgba(233, 161, 92, 0.12) 54%, transparent 70%) !important;
+}
+
+.hero h1,
+.hero-intro,
+.hero-lead {
+  color: var(--rk-text-blue) !important;
+}
+
+.hero-lead {
+  color: #50667b !important;
+}
+
+.hero h1 .accent {
+  color: var(--rk-brand-blue) !important;
+}
+
+.hero h1 .accent::after {
+  background: linear-gradient(90deg, var(--rk-brand-blue), var(--rk-warm-orange)) !important;
+}
+
+.btn-hero-primary,
+.btn-conv-primary {
+  background: linear-gradient(90deg, #2f80ed 0%, #2563eb 72%, #2b6faf 100%) !important;
+  box-shadow: 0 14px 26px rgba(37, 99, 235, 0.18) !important;
+}
+
+.hero .btn-hero-secondary {
+  color: var(--rk-text-blue) !important;
+  border-color: rgba(233, 161, 92, 0.58) !important;
+  background: rgba(255, 255, 255, 0.66) !important;
+}
+
+.audience-section,
+.stats,
+.services,
+.info {
+  background: var(--rk-page) !important;
+}
+
+.goals,
+.cases,
+.news {
+  background: #ffffff !important;
+}
+
+.flow,
+.footer {
+  background: var(--rk-deep-blue) !important;
+}
+
+.flow::before {
+  opacity: 0.28 !important;
+}
+
+.conversion-bar {
+  position: relative !important;
+  padding: 48px 0 !important;
+  color: var(--rk-text-blue) !important;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(233, 161, 92, 0.13), transparent 24%),
+    radial-gradient(circle at 88% 22%, rgba(91, 168, 216, 0.15), transparent 27%),
+    linear-gradient(115deg, #ffffff 0%, #f7fbfd 48%, #eaf6fb 100%) !important;
+}
+
+.conversion-bar::before {
+  content: '' !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(ellipse at 14% 34%, rgba(191, 227, 242, 0.42) 0 9%, transparent 10%),
+    radial-gradient(ellipse at 18% 47%, rgba(191, 227, 242, 0.28) 0 7%, transparent 8%),
+    radial-gradient(ellipse at 84% 28%, rgba(191, 227, 242, 0.36) 0 10%, transparent 11%),
+    radial-gradient(ellipse at 88% 42%, rgba(233, 161, 92, 0.14) 0 7%, transparent 8%),
+    radial-gradient(circle, rgba(37, 111, 168, 0.12) 0 2px, transparent 3px) 0 0 / 96px 96px,
+    linear-gradient(64deg, transparent 0 48%, rgba(91, 168, 216, 0.09) 49% 51%, transparent 52% 100%) 0 0 / 150px 150px !important;
+  opacity: 0.62 !important;
+}
+
+.conversion-bar:nth-of-type(8)::before {
+  opacity: 0.42 !important;
+  background-position: 30px 0, 30px 0, -20px 12px, -20px 12px, 28px 18px, 40px 0 !important;
+}
+
+.conversion-bar-inner {
+  position: relative !important;
+  z-index: 1 !important;
+  padding: 28px 36px !important;
+  background: rgba(255, 255, 255, 0.84) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(37, 111, 168, 0.11) !important;
+}
+
+.cta-section {
+  position: relative !important;
+  min-height: 420px !important;
+  padding: 46px 0 0 !important;
+  color: var(--rk-text-blue) !important;
+  background:
+    radial-gradient(circle at 15% 18%, rgba(233, 161, 92, 0.12), transparent 26%),
+    radial-gradient(circle at 82% 18%, rgba(91, 168, 216, 0.16), transparent 28%),
+    linear-gradient(115deg, #ffffff 0%, #f8fcfe 42%, #eaf6fb 100%) !important;
+}
+
+.cta-section::before {
+  content: '' !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(ellipse at 8% 18%, rgba(191, 227, 242, 0.34) 0 7%, transparent 8%),
+    radial-gradient(ellipse at 11% 32%, rgba(233, 161, 92, 0.11) 0 6%, transparent 7%),
+    radial-gradient(ellipse at 78% 18%, rgba(191, 227, 242, 0.26) 0 8%, transparent 9%),
+    radial-gradient(circle, rgba(37, 111, 168, 0.10) 0 2px, transparent 3px) 0 0 / 90px 90px,
+    linear-gradient(64deg, transparent 0 48%, rgba(91, 168, 216, 0.08) 49% 51%, transparent 52% 100%) 0 0 / 148px 148px !important;
+  opacity: 0.5 !important;
+}
+
+.cta-inner {
+  max-width: 1120px !important;
+  min-height: 374px !important;
+  grid-template-columns: minmax(0, 650px) minmax(360px, 430px) !important;
+  gap: 28px !important;
+  align-items: end !important;
+}
+
+.cta-inner h2 {
+  align-self: end !important;
+  margin: 0 0 14px !important;
+  font-size: clamp(2rem, 3vw, 2.7rem) !important;
+  line-height: 1.32 !important;
+  white-space: nowrap !important;
+}
+
+.cta-inner p {
+  margin: 0 0 22px !important;
+  line-height: 1.62 !important;
+  font-size: 15px !important;
+  color: #40566c !important;
+}
+
+.cta-buttons {
+  padding-bottom: 52px !important;
+}
+
+.cta-inner::before {
+  width: min(430px, 100%) !important;
+  height: 390px !important;
+  background: url('rakumade-support-gesture-upper-transparent.png') center bottom / contain no-repeat !important;
+  filter: drop-shadow(0 18px 24px rgba(7, 26, 45, 0.13)) !important;
+}
+
+@media (max-width: 1024px) {
+  .cta-section {
+    min-height: auto !important;
+    padding-top: 48px !important;
+  }
+
+  .cta-inner {
+    min-height: auto !important;
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  .cta-inner h2 {
+    white-space: normal !important;
+  }
+
+  .cta-buttons {
+    padding-bottom: 12px !important;
+    justify-content: center !important;
+  }
+
+  .cta-inner::before {
+    width: min(360px, 74vw) !important;
+    height: 320px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 70px !important;
+  }
+
+  .conversion-bar {
+    padding: 36px 0 !important;
+  }
+
+  .cta-inner p {
+    line-height: 1.7 !important;
+  }
+
+  .cta-inner::before {
+    width: min(300px, 82vw) !important;
+    height: 286px !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- サイドナビ -->
+<nav class="side-nav" id="sideNav">
+  <a href="#sec-hero" class="side-nav-item active" data-target="sec-hero">
+    <span class="side-nav-dot"></span>
+    <span class="side-nav-label">トップ</span>
+  </a>
+  <a href="#sec-goals" class="side-nav-item" data-target="sec-goals">
+    <span class="side-nav-dot"></span>
+    <span class="side-nav-label">お客様のお悩み</span>
+  </a>
+  <a href="#sec-services" class="side-nav-item" data-target="sec-services">
+    <span class="side-nav-dot"></span>
+    <span class="side-nav-label">サポート内容</span>
+  </a>
+  <a href="#sec-flow" class="side-nav-item dark" data-target="sec-flow">
+    <span class="side-nav-dot"></span>
+    <span class="side-nav-label">ご利用の流れ</span>
+  </a>
+  <a href="#sec-cases" class="side-nav-item" data-target="sec-cases">
+    <span class="side-nav-dot"></span>
+    <span class="side-nav-label">導入事例</span>
+  </a>
+  <a href="#sec-info" class="side-nav-item" data-target="sec-info">
+    <span class="side-nav-dot"></span>
+    <span class="side-nav-label">ご相談前の確認</span>
+  </a>
+  <a href="#sec-news" class="side-nav-item" data-target="sec-news">
+    <span class="side-nav-dot"></span>
+    <span class="side-nav-label">お知らせ</span>
+  </a>
+</nav>
+
+<!-- ヘッダー -->
+<div class="header-top">
+  <div class="container header-top-inner">
+    <a href="#" class="header-top-dl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>資料ダウンロード</a>
+    <a href="#">ご利用ガイド</a>
+    <a href="#">お問い合わせ</a>
+    <a href="#">ログイン</a>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo-link">
+      <img src="data:image/png;base64,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EtAiQAHRwkYnEiABEiABCgjrAAmQAAmQgBYBCogWNjqRAAmQAAlQQFgHSIAESIAEtAhQQLSw0YkESIAESIACwjpAAiRAAiSgRYACooWNTiRAAiRAAhQQ1gESIAESIAEtAhQQLWx0IgESIAESoICwDpAACZAACWgRoIBoYaMTCZAACZAABYR1gARIgARIQIsABUQLG51IgARIgAQoIKwDJEACJEACWgQoIFrY6EQCJEACJEABYR0gARIgARLQIkAB0cJGJxIgARIgAQoI6wAJkAAJkIAWAQqIFjY6kQAJkAAJUEBYB0iABEiABLQIUEC0sNGJBEiABEiAAsI6QAIkQAIkoEWAAqKFjU4kQAIkQAIUENYBEiABEiABLQIUEC1sdCIBEiABEqCAsA6QAAmQAAloEaCAaGGjEwmQAAmQAAWEdYAESIAESECLAAVECxudSIAESIAEKCCsAyRAAiRAAloEKCBa2OhEAiRAAiRAAWEdIAESIAES0CJAAdHCRicSIAESIAEKCOsACZAACZCAFgEKiBY2OpEACZAACVBAWAdIgARIgAS0CFBAtLDRiQRIgARIgALCOkACJEACJKBFgAKihY1OJEACJEACFBDWARIgARIgAS0CFBAtbHQiARIgARKggLAOkAAJkAAJaBGggGhhoxMJkAAJkAAFhHWABEiABEhAiwAFRAsbnUiABEiABCggrAMkQAIkQAJaBCggWtjoRAIkQAIkQAFhHSABEiABEtAiQAHRwkYnEiABEiCB/wdvrP2TMTWabwAAAABJRU5ErkJggg==" alt="Rakumade" class="logo-img">
+    </a>
+
+    <ul class="nav-main">
+      <li>
+        <a href="#">OEM支援サービス</a>
+        <ul class="nav-sub">
+          <li><a href="#">OEM/ODM生産支援</a></li>
+          <li><a href="#">工場監査サービス</a></li>
+          <li><a href="#">現地同行サービス</a></li>
+          <li><a href="#">検品サービス</a></li>
+          <li><a href="#">オプション</a></li>
+          <li><a href="#">60日間無料保存</a></li>
+          <li><a href="#">国際物流</a></li>
+          <li><a href="#">撮影サービス</a></li>
+          <li><a href="#">生産顧問サービス</a></li>
+          <li><a href="#">講師サービス</a></li>
+          <li><a href="#">PSE認証・食品届代理申請</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">工場ネットワーク</a>
+        <ul class="nav-sub">
+          <li><a href="#">Rakumade工場ネットワーク</a></li>
+          <li><a href="#">主要産地の厳選工場</a></li>
+          <li><a href="#">1688工場</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">料金</a>
+        <ul class="nav-sub">
+          <li><a href="#">手数料</a></li>
+          <li><a href="#">検品・オプション費用</a></li>
+          <li><a href="#">国際輸送費</a></li>
+          <li><a href="#">倉庫保管費</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">ご利用ガイド</a>
+        <ul class="nav-sub">
+          <li><a href="#">ご利用ガイド</a></li>
+          <li><a href="#">5分でわかるRakumadeの強み</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">お知らせ・ナレッジ</a>
+        <ul class="nav-sub">
+          <li><a href="#">OEMナレッジ</a></li>
+          <li><a href="#">コンプライアンス</a></li>
+          <li><a href="#">導入事例</a></li>
+          <li><a href="#">イベント情報</a></li>
+          <li><a href="#">サービス更新</a></li>
+          <li><a href="#">物流のお知らせ</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">会社情報</a>
+        <ul class="nav-sub">
+          <li><a href="#">会社概要</a></li>
+          <li><a href="#">沿革</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="header-cta">
+      <a href="#" class="btn-text">無料相談</a>
+      <a href="#" class="btn-primary" id="signupBtn">無料会員登録</a>
+    </div>
+  </div>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero" id="sec-hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <h1>OEMで、あなたの<br><span class="accent">ブランドを世界へ</span>。</h1>
+      <p class="hero-intro">商品アイデアを形にしたい方、もっと売れる商品を作りたい方、自社ブランドを育てたい方へ。</p>
+      <p class="hero-lead">
+        Rakumadeは、中国OEM/ODMの工場マッチングから試作・量産・検品・日本国内納品まで、商品づくりの各工程をサポートします。商品開発の知見と工場ネットワークを活かし、ブランドを長く育てていくパートナーとして伴走いたします。
+      </p>
+      <div class="hero-cta">
+        <a href="#" class="btn-hero-primary">無料会員登録 →</a>
+        <a href="#" class="btn-hero-secondary">無料相談を予約</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-image-wrap">
+        <div class="hero-image-main">
+          <svg class="hero-svg" viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg" fill="none" role="img" aria-labelledby="hero-visual-title hero-visual-desc">
+            <title id="hero-visual-title">RakumadeのOEM/ODMブランド支援ネットワーク</title>
+            <desc id="hero-visual-desc">商品企画から中国工場、試作、検品、日本納品、ブランド成長までをつなぐ首屏ビジュアルです。</desc>
+            <defs>
+              <linearGradient id="heroCoreGrad" x1="180" y1="180" x2="380" y2="382" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#67e8f9" stop-opacity="0.42"/>
+                <stop offset="48%" stop-color="#3b82f6" stop-opacity="0.28"/>
+                <stop offset="100%" stop-color="#061629" stop-opacity="0.16"/>
+              </linearGradient>
+              <linearGradient id="heroRouteBlue" x1="72" y1="410" x2="350" y2="130" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#67e8f9" stop-opacity="0.18"/>
+                <stop offset="55%" stop-color="#60a5fa" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#b8cce0" stop-opacity="0.82"/>
+              </linearGradient>
+              <linearGradient id="heroRouteGold" x1="220" y1="420" x2="500" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.3"/>
+                <stop offset="45%" stop-color="#b8cce0" stop-opacity="0.82"/>
+                <stop offset="100%" stop-color="#f7c75f" stop-opacity="0.95"/>
+              </linearGradient>
+              <linearGradient id="heroNodeBlue" x1="0" y1="0" x2="150" y2="68" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#08203a" stop-opacity="0.96"/>
+                <stop offset="100%" stop-color="#1c4776" stop-opacity="0.86"/>
+              </linearGradient>
+              <linearGradient id="heroNodeGold" x1="0" y1="0" x2="150" y2="68" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#102a4c" stop-opacity="0.96"/>
+                <stop offset="100%" stop-color="#173d6d" stop-opacity="0.82"/>
+              </linearGradient>
+              <filter id="heroSoftGlow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="8" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <filter id="heroCardShadow" x="-30%" y="-40%" width="160%" height="190%">
+                <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#061629" flood-opacity="0.26"/>
+              </filter>
+            </defs>
+
+            <g opacity="0.58">
+              <ellipse cx="280" cy="282" rx="188" ry="74" stroke="#60a5fa" stroke-opacity="0.18" stroke-width="1.1"/>
+              <ellipse cx="280" cy="282" rx="188" ry="74" transform="rotate(38 280 282)" stroke="#60a5fa" stroke-opacity="0.14" stroke-width="1.1"/>
+              <ellipse cx="280" cy="282" rx="188" ry="74" transform="rotate(-38 280 282)" stroke="#b8cce0" stroke-opacity="0.13" stroke-width="1.1"/>
+              <ellipse cx="280" cy="282" rx="92" ry="182" stroke="#60a5fa" stroke-opacity="0.1" stroke-width="1.1"/>
+            </g>
+
+            <g class="route-network">
+              <path class="route-main" d="M150 130C210 158 218 198 244 232C201 256 161 262 117 282" stroke="url(#heroRouteBlue)" stroke-width="3" stroke-linecap="round"/>
+              <path class="route-main route-delay-1" d="M118 282C166 304 201 330 226 374C202 400 174 426 156 440" stroke="url(#heroRouteBlue)" stroke-width="3" stroke-linecap="round"/>
+              <path class="route-main route-delay-2" d="M226 374C258 360 300 360 334 374C360 408 393 426 420 438" stroke="url(#heroRouteBlue)" stroke-width="3" stroke-linecap="round"/>
+              <path class="route-main route-delay-3" d="M420 438C386 388 384 333 423 286C450 282 474 282 494 284" stroke="url(#heroRouteGold)" stroke-width="3" stroke-linecap="round"/>
+              <path class="route-main route-delay-4" d="M494 284C446 254 420 218 428 161C438 140 452 128 470 116" stroke="url(#heroRouteGold)" stroke-width="3" stroke-linecap="round"/>
+              <path class="route-main route-delay-5" d="M470 116C410 132 356 162 316 214C290 224 266 224 244 232" stroke="url(#heroRouteGold)" stroke-width="3" stroke-linecap="round"/>
+              <path class="route-dash" d="M150 130C234 198 332 202 470 116M118 282C248 254 358 262 494 284M156 440C258 372 344 372 420 438" stroke="#67e8f9" stroke-opacity="0.22" stroke-width="1.2" stroke-linecap="round"/>
+            </g>
+
+            <g filter="url(#heroSoftGlow)" opacity="0.92">
+              <circle class="core-ring" cx="280" cy="282" r="132" fill="url(#heroCoreGrad)" stroke="#60a5fa" stroke-opacity="0.55" stroke-width="1.4"/>
+              <circle cx="280" cy="282" r="92" fill="#0a2540" fill-opacity="0.48" stroke="#67e8f9" stroke-opacity="0.22" stroke-width="1.1"/>
+              <ellipse cx="280" cy="282" rx="112" ry="36" stroke="#b8cce0" stroke-opacity="0.18" stroke-width="1"/>
+              <ellipse cx="280" cy="282" rx="112" ry="36" transform="rotate(50 280 282)" stroke="#b8cce0" stroke-opacity="0.16" stroke-width="1"/>
+              <ellipse cx="280" cy="282" rx="112" ry="36" transform="rotate(-50 280 282)" stroke="#b8cce0" stroke-opacity="0.16" stroke-width="1"/>
+            </g>
+
+            <g>
+              <circle cx="280" cy="282" r="62" fill="#071a31" fill-opacity="0.86" stroke="#f7c75f" stroke-opacity="0.72" stroke-width="1.35"/>
+              <circle cx="280" cy="282" r="73" stroke="#f7c75f" stroke-opacity="0.2" stroke-width="1"/>
+              <text x="280" y="273" text-anchor="middle" font-family="Manrope, sans-serif" font-size="27" font-weight="800" fill="#ffffff">Rakumade</text>
+              <text x="280" y="302" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#f7c75f">ブランドを世界へ</text>
+            </g>
+
+            <g class="moving-parcel">
+              <animateTransform attributeName="transform" type="translate" values="442 158;460 146;442 158" dur="8s" repeatCount="indefinite"/>
+              <rect x="0" y="0" width="34" height="34" rx="8" fill="#f7c75f" fill-opacity="0.14" stroke="#f7c75f" stroke-opacity="0.72"/>
+              <path d="M10 13L17 9L25 13V23L17 28L10 23V13Z" stroke="#f7c75f" stroke-width="1.55"/>
+              <path d="M10 13L17 18L25 13M17 18V28" stroke="#f7c75f" stroke-width="1.25"/>
+            </g>
+
+            <g class="node-card" transform="translate(68 86)" filter="url(#heroCardShadow)">
+              <rect width="146" height="62" rx="12" fill="url(#heroNodeBlue)" stroke="#60a5fa" stroke-opacity="0.58"/>
+              <circle cx="34" cy="26" r="13" stroke="#67e8f9" stroke-width="2"/>
+              <path d="M29 43H39M31 47H37" stroke="#67e8f9" stroke-width="1.6" stroke-linecap="round"/>
+              <text x="72" y="37" font-family="Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#ffffff">商品企画</text>
+            </g>
+
+            <g class="node-card" transform="translate(36 252)" style="animation-delay:-1.6s" filter="url(#heroCardShadow)">
+              <rect width="150" height="62" rx="12" fill="url(#heroNodeBlue)" stroke="#60a5fa" stroke-opacity="0.5"/>
+              <path d="M22 43V31L32 36V31L42 36V24H50V43H22Z" stroke="#67e8f9" stroke-width="1.8" stroke-linejoin="round"/>
+              <path d="M28 42V37H33V42M40 42V37H45V42" stroke="#67e8f9" stroke-width="1.35"/>
+              <text x="76" y="38" font-family="Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#ffffff">中国工場</text>
+            </g>
+
+            <g class="node-card" transform="translate(100 412)" style="animation-delay:-3.2s" filter="url(#heroCardShadow)">
+              <rect width="154" height="62" rx="12" fill="url(#heroNodeBlue)" stroke="#60a5fa" stroke-opacity="0.5"/>
+              <path d="M23 25L37 17L51 25V42L37 50L23 42V25Z" stroke="#67e8f9" stroke-width="1.8"/>
+              <path d="M23 25L37 33L51 25M37 33V50" stroke="#67e8f9" stroke-width="1.35"/>
+              <text x="80" y="38" font-family="Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#ffffff">試作・量産</text>
+            </g>
+
+            <g class="node-card" transform="translate(360 86)" style="animation-delay:-2.2s" filter="url(#heroCardShadow)">
+              <rect width="134" height="62" rx="12" fill="url(#heroNodeGold)" stroke="#f7c75f" stroke-opacity="0.6"/>
+              <path d="M25 20H50V45H25V20Z" stroke="#f7c75f" stroke-width="1.8"/>
+              <path d="M31 32L37 38L48 26" stroke="#f7c75f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="76" y="38" font-family="Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#ffffff">検品</text>
+            </g>
+
+            <g class="node-card" transform="translate(374 252)" style="animation-delay:-4s" filter="url(#heroCardShadow)">
+              <rect width="150" height="62" rx="12" fill="url(#heroNodeGold)" stroke="#f7c75f" stroke-opacity="0.6"/>
+              <path d="M21 40H51V29H44L39 22H21V40Z" stroke="#f7c75f" stroke-width="1.8" stroke-linejoin="round"/>
+              <circle cx="29" cy="43" r="3.2" fill="#f7c75f"/>
+              <circle cx="46" cy="43" r="3.2" fill="#f7c75f"/>
+              <text x="82" y="38" font-family="Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#ffffff">日本納品</text>
+            </g>
+
+            <g class="node-card" transform="translate(350 412)" style="animation-delay:-2.8s" filter="url(#heroCardShadow)">
+              <rect width="166" height="62" rx="12" fill="url(#heroNodeGold)" stroke="#f7c75f" stroke-opacity="0.6"/>
+              <path d="M24 45V25H48V45M24 33H48M30 45V38H42V45" stroke="#f7c75f" stroke-width="1.8"/>
+              <path d="M53 22L60 29L67 22M60 29V45" stroke="#f7c75f" stroke-width="1.8" stroke-linecap="round"/>
+              <text x="92" y="38" font-family="Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#ffffff">ブランド成長</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="audience-section" aria-label="Rakumadeをご利用いただくお客様とサポートの特長">
+  <!-- 対応できるお客様 -->
+  <div class="container audience-tags">
+    <h2 class="audience-tags-title">こんなお客様に<br class="mobile-break">ご利用いただいています</h2>
+    <div class="audience-tags-list">
+      <div class="audience-tags-row">
+        <span class="audience-tag">初めてOEMに挑戦される方</span>
+        <span class="audience-tag">OEM経験があり、次のステップへ進みたい方</span>
+        <span class="audience-tag">自社ブランドを育てていきたい方</span>
+      </div>
+      <div class="audience-tags-row">
+        <span class="audience-tag">商社・法人の調達ご担当者</span>
+        <span class="audience-tag">EC事業者・小売・卸売・ブランド製造業の皆様</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5つの強み -->
+  <div class="hero-values-bar">
+    <div class="container">
+      <div class="hero-values-grid">
+        <div class="hv-item">
+          <div class="hv-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M3 21h18M5 21V8l7-5 7 5v13M9 12h2v2H9zM13 12h2v2h-2zM9 16h2v2H9zM13 16h2v2h-2z"/>
+            </svg>
+          </div>
+          <div class="hv-title">品目ごとの<br>専門チーム</div>
+          <div class="hv-desc">商品分野ごとの工程・コスト・<br>リスクを把握</div>
+        </div>
+        <div class="hv-item">
+          <div class="hv-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v10M15 9.5a3 3 0 0 0-3-1.5c-1.7 0-3 1-3 2.2s1.3 1.8 3 2.2c1.7.4 3 1 3 2.2s-1.3 2.2-3 2.2a3 3 0 0 1-3-1.5"/>
+            </svg>
+          </div>
+          <div class="hv-title">コスト調整の<br>ご提案</div>
+          <div class="hv-desc">ご予算・品質・数量に<br>合わせた現実的なプラン</div>
+        </div>
+        <div class="hv-item">
+          <div class="hv-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="11" cy="11" r="7"/>
+              <line x1="21" y1="21" x2="16.5" y2="16.5"/>
+              <line x1="8" y1="11" x2="14" y2="11"/>
+              <line x1="11" y1="8" x2="11" y2="14"/>
+            </svg>
+          </div>
+          <div class="hv-title">非公開の<br>商品情報をご提供</div>
+          <div class="hv-desc">一般には出回らない<br>工場・新商品をご紹介</div>
+        </div>
+        <div class="hv-item">
+          <div class="hv-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="9" y1="21" x2="9" y2="9"/>
+              <path d="M12 14l2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="hv-title">進捗の<br>共有</div>
+          <div class="hv-desc">専用システムで<br>各工程を一目で確認</div>
+        </div>
+        <div class="hv-item">
+          <div class="hv-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4.5 16.5L3 21l4.5-1.5M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z"/>
+            </svg>
+          </div>
+          <div class="hv-title">ブランドづくりを<br>長期で支援</div>
+          <div class="hv-desc">OEM経験に基づく<br>実務的なサポート</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- 数値 -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="3000">0</span><span class="unit">社+</span></div>
+        <div class="stat-label">OEM取引社数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="10">0</span><span class="unit">万工場+</span></div>
+        <div class="stat-label">提携厳選工場</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="10">0</span><span class="unit">万件+</span></div>
+        <div class="stat-label">年間OEM件数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="10">0</span><span class="unit">年+</span></div>
+        <div class="stat-label">ブランド構築支援実績</div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<!-- お客様のお悩み・ご希望 -->
+<section class="goals" id="sec-goals">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title"><span class="section-title-mark"></span>こんなお悩み、<br>Rakumadeが一緒に解決します</h2>
+      <p class="section-subtitle">OEMの開始、商品の差別化、自社ブランドの育成について、お客様一人ひとりの悩みやご希望に向き合います。目指す姿を一緒に整理し、形にしていくことがRakumadeの役割です。</p>
+    </div>
+
+    <div class="goals-list">
+
+      <!-- 01 -->
+      <div class="goal-row reveal">
+        <div class="goal-content">
+          <div class="goal-num">01</div>
+          <div class="goal-want-label">こんなお悩みありませんか？</div>
+          <h3 class="goal-title">信頼できる工場が見つからず、<br><span class="highlight">生産を任せるのが不安です</span></h3>
+          <p class="goal-desc">工場選びでは、価格の安さだけで判断すると、品質・納期・対応力の面で思わぬズレが生まれやすくなります。Rakumadeでは、商品分野、ご予算、最低ロット、品質基準、納期、販売チャネルなどを伺ったうえで、条件に合う工場候補をお選びします。</p>
+          <p class="goal-desc">生産能力や対応実績、品質管理の考え方、連絡の取りやすさまで確認し、安心して相談できる生産先を探します。ご希望に応じて、工場監査や現地同行サービスを通じ、契約前に生産現場をご確認いただくことも可能です。</p>
+          <div class="goal-outcome">
+            <div class="goal-outcome-label">Rakumadeなら、こうなります</div>
+            <div class="goal-outcome-text">工場選びの不安を減らし、条件に合う生産先へ相談しやすくなります。</div>
+          </div>
+        </div>
+
+        <div class="goal-services">
+          <div class="goal-services-inner">
+            <div class="goal-services-label">Rakumadeのサポート</div>
+            <div class="goal-services-heading">ご希望に合う工場候補を、条件に沿って選定します</div>
+            <div class="goal-services-grid">
+              <a href="#" class="goal-service-item">
+                <div>
+                  <div class="goal-service-name">OEM/ODM生産支援</div>
+                  <div class="goal-service-desc">商品企画・お見積り・試作・量産まで一貫してサポート</div>
+                </div>
+                <span class="goal-service-detail">詳細を見る →</span>
+              </a>
+              <a href="#" class="goal-service-item">
+                <div>
+                  <div class="goal-service-name">工場監査サービス</div>
+                  <div class="goal-service-desc">資格・生産能力・品質管理を多角的に審査</div>
+                </div>
+                <span class="goal-service-detail">詳細を見る →</span>
+              </a>
+              <a href="#" class="goal-service-item">
+                <div>
+                  <div class="goal-service-name">現地同行サービス</div>
+                  <div class="goal-service-desc">通訳・行程手配で、出張のご負担を軽減</div>
+                </div>
+                <span class="goal-service-detail">詳細を見る →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 (reverse) -->
+      <div class="goal-row reverse reveal">
+        <div class="goal-content">
+          <div class="goal-num">02</div>
+          <div class="goal-want-label">こんなお悩みありませんか？</div>
+          <h3 class="goal-title">ロゴ変更だけでは、<br><span class="highlight">差別化につながりにくいです</span></h3>
+          <p class="goal-desc">OEMから一歩進めて、商品そのもので違いを出したいお客様には、OEM/ODM生産支援の中で、非公開の商品情報も活用しながらご提案します。ブランド運営や販売後の商品展開まで深く相談したい場合は、Amazon・自社ブランド運営の実務経験を持つ講師による有料サポートもご利用いただけます。</p>
+          <p class="goal-desc">扱う商品の方向性、競合との差別化ポイント、次の商品展開まで見据えながら、商品開発の段階から一緒に整理します。単発の商品づくりで終わらせず、商品ラインを育てていくための進め方を考えます。</p>
+          <div class="goal-outcome">
+            <div class="goal-outcome-label">Rakumadeなら、こうなります</div>
+            <div class="goal-outcome-text">単発のOEMで終わらず、商品ラインを育てながら、選ばれ続けるブランドづくりを目指せます。</div>
+          </div>
+        </div>
+
+        <div class="goal-services">
+          <div class="goal-services-inner">
+            <div class="goal-services-label">Rakumadeのサポート</div>
+            <div class="goal-services-heading">商品開発からブランド構築まで、長期で支援します</div>
+            <div class="goal-services-grid">
+              <div class="goal-service-item is-plain">
+                <div>
+                  <div class="goal-service-name">非公開新商品のご提案</div>
+                  <div class="goal-service-desc">市場観察に基づく、ブランド向けの新商品をご紹介</div>
+                  <div class="goal-service-note">通常のOEM/ODM生産支援に含まれます</div>
+                </div>
+              </div>
+              <a href="#" class="goal-service-item">
+                <div>
+                  <div class="goal-service-name">講師・コンサル支援</div>
+                  <div class="goal-service-desc">商品選定・差別化・ブランド構築を段階的にご提案</div>
+                  <div class="goal-service-note">別途有料サポート</div>
+                </div>
+                <span class="goal-service-detail">詳細を見る →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="goal-row reveal">
+        <div class="goal-content">
+          <div class="goal-num">03</div>
+          <div class="goal-want-label">こんなお悩みありませんか？</div>
+          <h3 class="goal-title">初めて扱う商品カテゴリで、<br><span class="highlight">どこまで確認すべきか迷っています</span></h3>
+          <p class="goal-desc">OEMでは、商品が変わるだけで、工場に伝えるべき仕様や確認の順番も変わります。素材・サイズ・加工・包装などの条件が曖昧なまま進むと、見積りの前提がずれたり、試作で手戻りが増えたりします。</p>
+          <p class="goal-desc">Rakumadeでは、商品カテゴリに応じた担当者が、通常の進行サポートの中で確認事項を整理します。まずは仕様や用途、素材、サイズなどの前提をそろえ、工場へ確認すべき条件を明確にします。そのうえで、検査・認証の必要性や、検品時に見ておきたいポイントも確認しながら、見積りから量産までの進め方を整えます。</p>
+          <div class="goal-outcome">
+            <div class="goal-outcome-label">Rakumadeなら、こうなります</div>
+            <div class="goal-outcome-text">早い段階で確認事項がそろうため、工場との認識違いや試作の手戻りを減らしやすくなります。</div>
+          </div>
+        </div>
+
+        <div class="goal-services">
+          <div class="goal-services-inner">
+            <div class="goal-services-label">Rakumadeのサポート</div>
+            <div class="goal-services-heading">カテゴリ別担当が、仕様整理と工場への確認事項をサポートします</div>
+            <div class="goal-img-placeholder">
+              <span class="goal-img-label">画像：専任担当者の業務風景</span>
+            </div>
+            <div class="goal-note">※通常のOEM進行サポートに含まれます。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 (reverse) -->
+      <div class="goal-row reverse reveal">
+        <div class="goal-content">
+          <div class="goal-num">04</div>
+          <div class="goal-want-label">こんなお悩みありませんか？</div>
+          <h3 class="goal-title">量産に進む前に、<br><span class="highlight">この進め方でよいか確かめたいです</span></h3>
+          <p class="goal-desc">試作が形になっても、そのまま量産へ進めてよいとは限りません。生産方法の安定性、見積りの妥当性、品質不良につながる要因など、量産前に確認しておきたい点があります。</p>
+          <p class="goal-desc">Rakumadeでは、必要に応じて、対象品目の生産経験を持つ顧問を交えた相談の場をご用意します。製品の構造・素材・工程・コストをふまえ、量産前のリスクや確認すべき条件を整理します。特定の工場を前提にせず、製品そのものを軸に確認できるため、工場との見解が分かれた場合も、次に取るべき選択肢を考えやすくなります。</p>
+          <div class="goal-outcome">
+            <div class="goal-outcome-label">Rakumadeなら、こうなります</div>
+            <div class="goal-outcome-text">生産上の懸念を整理し、リスクと選択肢を確認したうえで、次の工程へ進めます。</div>
+          </div>
+        </div>
+
+        <div class="goal-services">
+          <div class="goal-services-inner">
+            <div class="goal-services-label">Rakumadeのサポート</div>
+            <div class="goal-services-heading">対象品目の生産顧問が、量産前の判断材料をご提供します</div>
+            <div class="goal-img-placeholder">
+              <span class="goal-img-label">画像：顧問とのお打ち合わせ</span>
+            </div>
+            <div class="goal-note">※別途有料サポートです。対応品目はアクセサリー・バッグなど一部カテゴリに限られます。</div>
+            <a href="#" class="goal-detail-btn">詳細を見る</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="goal-row reveal">
+        <div class="goal-content">
+          <div class="goal-num">05</div>
+          <div class="goal-want-label">こんなお悩みありませんか？</div>
+          <h3 class="goal-title">サンプルや量産の進み具合が見えず、<br><span class="highlight">確認の手間が増えています</span></h3>
+          <p class="goal-desc">「今どこまで進んでいるのか」「何が止まっているのか」を、その都度メールで確認するのは手間がかかります。Rakumadeの専用システムでは、発注・サンプル・量産・検品・物流・納品までの状況をまとめて確認できます。</p>
+          <p class="goal-desc">進行状況が一か所で見えるため、確認のやり取りを減らしやすくなります。FBA納品が必要な場合は、Amazon API連携による効率化にも対応しています。</p>
+          <div class="goal-outcome">
+            <div class="goal-outcome-label">Rakumadeなら、こうなります</div>
+            <div class="goal-outcome-text">進行状況を確認しやすくなり、やり取りの手間や抜け漏れを減らせます。</div>
+          </div>
+        </div>
+
+        <div class="goal-services">
+          <div class="goal-services-inner">
+            <div class="goal-services-label">Rakumadeのサポート</div>
+            <div class="goal-services-heading">専用システムで、発注から納品までの状況を確認できます</div>
+            <div class="goal-img-placeholder">
+              <span class="goal-img-label">画像：管理システムの画面</span>
+            </div>
+            <a href="#" class="goal-detail-btn">詳細を見る</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTAバー 1 -->
+<section class="conversion-bar">
+  <div class="container conversion-bar-inner">
+    <div class="conversion-bar-text">
+      <div class="conversion-bar-title">まずは、お話を聞かせてください</div>
+      <div class="conversion-bar-sub">無料相談では、専任コンサルタントがご状況に合う進め方をご提案します。所要時間は約30分です。</div>
+    </div>
+    <div class="conversion-bar-btns">
+      <a href="#" class="btn-conv-primary">無料相談を予約 →</a>
+      <a href="#" class="btn-conv-secondary">今すぐ利用</a>
+    </div>
+  </div>
+</section>
+
+<!-- サービス：成果視点で再構成 -->
+<section class="services" id="sec-services">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title"><span class="section-title-mark"></span>商品化からブランド育成まで支える<br>Rakumadeのサービス</h2>
+      <p class="section-subtitle">商品を作る段階の悩みと、ブランドを育てる段階の悩みは異なります。Rakumadeでは、それぞれの場面で次の一歩を踏み出せるよう、必要なサポートを整理してご用意しています。</p>
+    </div>
+
+    <div class="service-tabs">
+      <button class="service-tab active" data-tab="oem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 21h18M5 21V10l7-5 7 5v11M10 21v-5h4v5"/>
+        </svg>
+        OEMで、商品を確実に形にしたい方へ
+      </button>
+      <button class="service-tab" data-tab="brand">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z"/>
+        </svg>
+        OEM商品を、売れ続けるブランドへ
+      </button>
+    </div>
+
+    <!-- OEM -->
+    <div class="service-panel active" id="panel-oem">
+      <div class="service-panel-intro">
+        <h3>初めてのOEMでも、安心して納品まで進められます</h3>
+        <p>OEMの各工程で「ここがわかりにくい」「ここが不安」と感じやすい場面を整理しました。つまずきやすいポイントごとに、Rakumadeのサポート内容をご確認いただけます。</p>
+      </div>
+
+      <div class="oem-flow">
+        <div class="oem-stage">
+          <div class="oem-stage-name">OEM/ODM<br>プロジェクト始動</div>
+          <div class="oem-stage-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="32" cy="20" r="10"/>
+              <path d="M12 56v-6c0-6 6-10 12-10h16c6 0 12 4 12 10v6"/>
+              <circle cx="48" cy="14" r="3" fill="currentColor"/>
+              <path d="M48 17v6M45 20h6"/>
+            </svg>
+          </div>
+          <div class="oem-stage-issue-label">解決できるお悩み</div>
+          <div class="oem-stage-issue">進め方や要件のまとめ方がわかりません</div>
+          <div class="oem-stage-support">
+            <div class="oem-stage-support-label">Rakumadeのサポート</div>
+            <a href="#">OEM/ODM生産支援</a>
+          </div>
+        </div>
+
+        <div class="oem-stage">
+          <div class="oem-stage-name">工場選定・<br>確認</div>
+          <div class="oem-stage-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M8 56V28l8-6v34M16 56V22l12-8v42M28 56V14l16 10v32M44 56V32h12v24"/>
+            </svg>
+          </div>
+          <div class="oem-stage-issue-label">解決できるお悩み</div>
+          <div class="oem-stage-issue">工場の能力・品質管理・納期リスクが心配です</div>
+          <div class="oem-stage-support">
+            <div class="oem-stage-support-label">Rakumadeのサポート</div>
+            <span class="oem-plain">工場マッチング</span><br>
+            <a href="#">工場監査サービス</a><br>
+            <a href="#">現地同行サービス</a>
+          </div>
+        </div>
+
+        <div class="oem-stage">
+          <div class="oem-stage-name">サンプル<br>確認・試作</div>
+          <div class="oem-stage-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M20 8h24l4 8v40c0 2-2 4-4 4H20c-2 0-4-2-4-4V16z"/>
+              <path d="M20 16h24M28 28h8M26 36h12M28 44h8"/>
+              <circle cx="44" cy="48" r="6" fill="currentColor" opacity="0.2"/>
+              <path d="M40 48l3 3 5-5"/>
+            </svg>
+          </div>
+          <div class="oem-stage-issue-label">解決できるお悩み</div>
+          <div class="oem-stage-issue">ご要望とサンプルにズレが出ないか不安です</div>
+          <div class="oem-stage-support">
+            <div class="oem-stage-support-label">Rakumadeのサポート</div>
+            <span class="oem-plain">サンプル確認</span><br>
+            <span class="oem-plain">試作コミュニケーション</span>
+          </div>
+        </div>
+
+        <div class="oem-stage">
+          <div class="oem-stage-name">量産・<br>品質管理</div>
+          <div class="oem-stage-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="8" y="20" width="48" height="32" rx="2"/>
+              <path d="M8 28h48"/>
+              <circle cx="48" cy="40" r="6" fill="currentColor" opacity="0.15"/>
+              <path d="M44 40l3 3 5-5"/>
+            </svg>
+          </div>
+          <div class="oem-stage-issue-label">解決できるお悩み</div>
+          <div class="oem-stage-issue">量産時のバラつき・不良品・梱包ミスが心配です</div>
+          <div class="oem-stage-support">
+            <div class="oem-stage-support-label">Rakumadeのサポート</div>
+            <span class="oem-plain">生産フォロー</span><br>
+            <a href="#">検品サービス</a><br>
+            <a href="#">オプション</a>
+          </div>
+        </div>
+
+        <div class="oem-stage">
+          <div class="oem-stage-name">日本納品・<br>販売準備</div>
+          <div class="oem-stage-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="6" y="24" width="32" height="20" rx="1"/>
+              <path d="M38 30h12l6 8v6H38z"/>
+              <circle cx="18" cy="48" r="5"/>
+              <circle cx="46" cy="48" r="5"/>
+            </svg>
+          </div>
+          <div class="oem-stage-issue-label">解決できるお悩み</div>
+          <div class="oem-stage-issue">倉庫・物流・FBA納品が効率的に進むか不安です</div>
+          <div class="oem-stage-support">
+            <div class="oem-stage-support-label">Rakumadeのサポート</div>
+            <a href="#">倉庫保管</a><br>
+            <a href="#">国際物流</a><br>
+            <span class="oem-plain">Amazon直送</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ブランド成長 -->
+    <div class="service-panel" id="panel-brand">
+      <div class="service-panel-intro">
+        <h3>OEMで作った商品を、長く売れるブランドに育てていきます</h3>
+        <p>商品が完成した後も、やるべきことは続きます。市場での競争、商品ラインの拡張、ブランド価値づくりなど、次の段階で出てくるお悩みに、実務経験に基づくサポートをご提供します。</p>
+      </div>
+
+      <div class="brand-grid">
+        <div class="brand-card">
+          <div class="brand-card-image">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="24" cy="32" r="12"/>
+              <circle cx="40" cy="32" r="12"/>
+              <path d="M28 26l-3 6h4l-3 6M40 26v12M36 30h8"/>
+            </svg>
+          </div>
+          <div class="brand-card-name">商品で<br>差別化したい方へ</div>
+          <div class="brand-card-issue-label">解決できるお悩み</div>
+          <div class="brand-card-issue">次に出す商品の方向性や情報源が見つかりません</div>
+          <div class="brand-card-support">
+            <div class="brand-card-support-label">Rakumadeのサポート</div>
+            <span class="brand-plain">非公開商品のご提案</span>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <div class="brand-card-image">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+              <rect x="8" y="16" width="48" height="34" rx="2"/>
+              <circle cx="22" cy="32" r="6"/>
+              <path d="M8 44l12-10 10 8 8-6 18 14"/>
+              <circle cx="44" cy="22" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="brand-card-name">販売の見せ方を<br>改善したい方へ</div>
+          <div class="brand-card-issue-label">解決できるお悩み</div>
+          <div class="brand-card-issue">商品画像の魅力が弱く感じます</div>
+          <div class="brand-card-support">
+            <div class="brand-card-support-label">Rakumadeのサポート</div>
+            <a href="#">撮影サービス</a>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <div class="brand-card-image">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="32" cy="32" r="12"/>
+              <circle cx="32" cy="32" r="5" fill="currentColor" opacity="0.2"/>
+              <path d="M32 8v8M32 48v8M8 32h8M48 32h8"/>
+            </svg>
+          </div>
+          <div class="brand-card-name">生産判断を<br>整えたい方へ</div>
+          <div class="brand-card-issue-label">解決できるお悩み</div>
+          <div class="brand-card-issue">生産方法・コスト・品質の判断が難しいです</div>
+          <div class="brand-card-support">
+            <div class="brand-card-support-label">Rakumadeのサポート</div>
+            <a href="#">生産顧問サービス</a>
+          </div>
+        </div>
+
+        <div class="brand-card">
+          <div class="brand-card-image">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M12 50V18l8-6h24l8 6v32"/>
+              <path d="M12 50h40"/>
+              <path d="M22 24h20M22 32h20M22 40h12"/>
+              <circle cx="44" cy="42" r="6" fill="currentColor" opacity="0.15"/>
+              <path d="M41 42l2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="brand-card-name">ブランド運営を<br>強くしたい方へ</div>
+          <div class="brand-card-issue-label">解決できるお悩み</div>
+          <div class="brand-card-issue">商品選定・LP・訴求文・ページ表現・販売戦略・運営力をもっと高めたいです</div>
+          <div class="brand-card-support">
+            <div class="brand-card-support-label">Rakumadeのサポート</div>
+            <a href="#">講師サービス</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- フロー（ブランドフロー削除、OEMのみ。チーム紹介も削除） -->
+<section class="flow" id="sec-flow">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title"><span class="section-title-mark"></span>ご相談から納品まで、<br>シンプルな6ステップ</h2>
+      <p class="section-subtitle">OEMのご利用フローは、ご相談から日本国内納品までの6ステップです。各ステップには動画解説をご用意していますので、初めての方も流れを確認しながら進めていただけます。</p>
+    </div>
+
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 01</div>
+        <div class="flow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg></div>
+        <div class="flow-step-title"><span>商品企画の<br>ご相談</span></div>
+        <div class="flow-step-link">動画解説</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 02</div>
+        <div class="flow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21h20M4 21V10l5 3V10l5 3V10l5 3v8M9 21v-4h2v4M14 21v-4h2v4"/></svg></div>
+        <div class="flow-step-title"><span>工場選定・<br>お見積り</span></div>
+        <div class="flow-step-link">動画解説</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 03</div>
+        <div class="flow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6a2 2 0 0 1 2 2H7a2 2 0 0 1 2-2zM7 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M8 12h8M8 16h5"/></svg></div>
+        <div class="flow-step-title"><span>サンプル・<br>試作</span></div>
+        <div class="flow-step-link">動画解説</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 04</div>
+        <div class="flow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/></svg></div>
+        <div class="flow-step-title"><span>ご発注・量産</span></div>
+        <div class="flow-step-link">動画解説</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 05</div>
+        <div class="flow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div class="flow-step-title"><span>検品</span></div>
+        <div class="flow-step-link">動画解説</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 06</div>
+        <div class="flow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h14v11H1zM15 8h4l3 3v4h-7"/><circle cx="5.5" cy="18" r="2"/><circle cx="18.5" cy="18" r="2"/></svg></div>
+        <div class="flow-step-title"><span>日本国内<br>納品</span></div>
+        <div class="flow-step-link">動画解説</div>
+      </div>
+    </div>
+
+    <div class="flow-note">
+      <span class="lock">会員限定</span>各ステップの動画解説は、無料会員登録後にご視聴いただけます
+    </div>
+  </div>
+</section>
+
+
+<!-- CTAバー 2 -->
+<section class="conversion-bar">
+  <div class="container conversion-bar-inner">
+    <div class="conversion-bar-text">
+      <div class="conversion-bar-title">RakumadeやOEMを、もっと知りたい方へ</div>
+      <div class="conversion-bar-sub">サービスの内容やOEMの進め方は、YouTubeでも分かりやすく紹介しています。気になる方はぜひご覧ください。</div>
+    </div>
+    <div class="conversion-bar-btns">
+      <a href="#" class="btn-conv-secondary">Youtubeへ</a>
+      <a href="#" class="btn-conv-primary" id="signupBtn2">無料会員登録 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 導入事例 -->
+<section class="cases" id="sec-cases">
+  <div class="container">
+    <div class="cases-header reveal">
+      <div class="section-header">
+        <h2 class="section-title"><span class="section-title-mark"></span>お客様・工場・Rakumade、<br>三者で築く成果のかたち</h2>
+        <p class="section-subtitle">お客様・工場・Rakumadeの三者が、それぞれの強みを持ち寄って商品を形にします。これまで支援してきたプロジェクトの中から、お悩みの解決につながった事例をご紹介します。</p>
+      </div>
+    </div>
+
+    <div class="cases-carousel-wrap">
+      <div class="cases-carousel" id="casesCarousel">
+
+        <div class="case-card case-apparel">
+          <div class="case-image">
+            <div class="case-image-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 22v-4c0-3 3-5 8-5s8 2 8 5v4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="case-body">
+            <span class="case-category">アパレル雑貨</span><span class="case-tag">初めてのOEM</span>
+            <h4>初めての中国OEMを、要件整理から量産まで支援しました</h4>
+            <div class="case-block">
+              <div class="case-block-label">お客様のお悩み</div>
+              <div class="case-block-text">初めての中国OEMで、進め方も工場対応もわかりませんでした。</div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">Rakumadeのサポート</div>
+              <div class="case-services">
+                <span class="case-service-chip">要件整理</span>
+                <span class="case-service-chip">工場対応</span>
+                <span class="case-service-chip">サンプル確認</span>
+                <span class="case-service-chip">生産フォロー</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">得られた成果</div>
+              <div class="case-result-highlight">初回商品が順調に販売され、その後のOEMも継続的にご依頼いただいています。</div>
+            </div>
+            <div class="case-link">事例を詳しく見る</div>
+          </div>
+        </div>
+
+        <div class="case-card case-cosme">
+          <div class="case-image">
+            <div class="case-image-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 11l3 3 8-8"/>
+                <path d="M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10"/>
+              </svg>
+            </div>
+          </div>
+          <div class="case-body">
+            <span class="case-category">美容・コスメ</span><span class="case-tag">小ロット・品質</span>
+            <h4>小ロット生産でも、品質と費用の見通しを整えました</h4>
+            <div class="case-block">
+              <div class="case-block-label">お客様のお悩み</div>
+              <div class="case-block-text">品質は妥協したくない一方で、小ロットに対応できる工場が見つかりませんでした。</div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">Rakumadeのサポート</div>
+              <div class="case-services">
+                <span class="case-service-chip">費用の透明化</span>
+                <span class="case-service-chip">検品基準</span>
+                <span class="case-service-chip">工場交渉</span>
+                <span class="case-service-chip">小ロット対応</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">得られた成果</div>
+              <div class="case-result-highlight">数百個ロットでのOEM生産に対応し、不良リスクも抑えました。</div>
+            </div>
+            <div class="case-link">事例を詳しく見る</div>
+          </div>
+        </div>
+
+        <div class="case-card case-lifestyle">
+          <div class="case-image">
+            <div class="case-image-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 17l6-6 4 4 8-8M21 7v5M21 7h-5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="case-body">
+            <span class="case-category">生活雑貨</span><span class="case-tag">差別化・売上アップ</span>
+            <h4>商品の差別化と販売改善で、売上の伸びにつなげました</h4>
+            <div class="case-block">
+              <div class="case-block-label">お客様のお悩み</div>
+              <div class="case-block-text">ロゴ替えだけでは競合と差がつかず、売上もなかなか伸びませんでした。</div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">Rakumadeのサポート</div>
+              <div class="case-services">
+                <span class="case-service-chip">非公開情報</span>
+                <span class="case-service-chip">組合せ提案</span>
+                <span class="case-service-chip">パッケージ強化</span>
+                <span class="case-service-chip">販売改善アドバイス</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">得られた成果</div>
+              <div class="case-result-highlight">商品の魅力と差別化が高まり、リピート購入も増えて、売上の継続的な伸びにつながりました。</div>
+            </div>
+            <div class="case-link">事例を詳しく見る</div>
+          </div>
+        </div>
+
+        <div class="case-card case-outdoor">
+          <div class="case-image">
+            <div class="case-image-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 3v18h18M7 14l4-4 4 4 5-5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="case-body">
+            <span class="case-category">アウトドア用品</span><span class="case-tag">長期パートナー</span>
+            <h4>個人事業から法人化後まで、商品開発を継続して支援しました</h4>
+            <div class="case-block">
+              <div class="case-block-label">お客様のお悩み</div>
+              <div class="case-block-text">第一弾から商品ライン拡張まで、安定して任せられるパートナーを探していました。</div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">Rakumadeのサポート</div>
+              <div class="case-services">
+                <span class="case-service-chip">専任担当</span>
+                <span class="case-service-chip">サンプル繰り返し確認</span>
+                <span class="case-service-chip">工場切り替え</span>
+                <span class="case-service-chip">コスト見直し</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">得られた成果</div>
+              <div class="case-result-highlight">個人事業から法人化後も継続してご依頼いただき、同等品質を保ちながらコストを見直せました。</div>
+            </div>
+            <div class="case-link">事例を詳しく見る</div>
+          </div>
+        </div>
+
+        <div class="case-card case-bag">
+          <div class="case-image">
+            <div class="case-image-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M6 2l3 6h6l3-6M6 2v3l-3 5h18l-3-5V2M4 10l2 12h12l2-12"/>
+              </svg>
+            </div>
+          </div>
+          <div class="case-body">
+            <span class="case-category">バッグ・財布</span><span class="case-tag">品目別の専門対応</span>
+            <h4>バッグ品目の専任対応で、試作のズレを抑えました</h4>
+            <div class="case-block">
+              <div class="case-block-label">お客様のお悩み</div>
+              <div class="case-block-text">試作のたびにイメージとのズレが生じ、修正回数が増えていました。</div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">Rakumadeのサポート</div>
+              <div class="case-services">
+                <span class="case-service-chip">仕様整理</span>
+                <span class="case-service-chip">生地確認</span>
+                <span class="case-service-chip">構造の見直し</span>
+                <span class="case-service-chip">バッグ工場マッチング</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">得られた成果</div>
+              <div class="case-result-highlight">修正回数を減らし、量産までの進行がスムーズになりました。</div>
+            </div>
+            <div class="case-link">事例を詳しく見る</div>
+          </div>
+        </div>
+
+        <div class="case-card case-gadget">
+          <div class="case-image">
+            <div class="case-image-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+          </div>
+          <div class="case-body">
+            <span class="case-category">家電・ガジェット</span><span class="case-tag">工場監査</span>
+            <h4>大型発注前の工場監査で、選定リスクを抑えました</h4>
+            <div class="case-block">
+              <div class="case-block-label">お客様のお悩み</div>
+              <div class="case-block-text">大型発注を控え、工場の実態を確認してから判断したいというご相談でした。</div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">Rakumadeのサポート</div>
+              <div class="case-services">
+                <span class="case-service-chip">工場監査</span>
+                <span class="case-service-chip">現地同行</span>
+                <span class="case-service-chip">生産環境確認</span>
+                <span class="case-service-chip">リスク判断</span>
+              </div>
+            </div>
+            <div class="case-block">
+              <div class="case-block-label">得られた成果</div>
+              <div class="case-result-highlight">長期協業の適性を見極め、工場選定の失敗リスクを抑えられました。</div>
+            </div>
+            <div class="case-link">事例を詳しく見る</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="cases-controls">
+      <div class="cases-nav">
+        <button class="cases-nav-btn" id="caseBtnPrev" aria-label="前へ">←</button>
+        <button class="cases-nav-btn" id="caseBtnNext" aria-label="次へ">→</button>
+      </div>
+      <div class="cases-dots" id="casesDots"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ご相談前の確認・会社情報（ニュースは分離） -->
+<section class="info" id="sec-info">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title"><span class="section-title-mark"></span>ご相談前に、<br>確認しておきたい情報</h2>
+      <p class="section-subtitle">よくいただくご質問、会社の体制、OEMに関する基礎知識をまとめました。ご相談前に確認していただくと、当日のお話がより具体的に進みます。</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-num">01</div>
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/>
+          </svg>
+        </div>
+        <h3>よくあるご質問</h3>
+        <p>最小ロット、費用、サンプル、検品、物流、FBA納品、認証手続きなど、お問い合わせの多い内容にお答えしています。</p>
+        <a href="#" class="info-card-link">FAQをすべて見る →</a>
+      </div>
+      <div class="info-card">
+        <div class="info-card-num">02</div>
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 21h18M5 21V8l7-5 7 5v13M9 12h2v2H9zM13 12h2v2h-2zM9 16h2v2H9zM13 16h2v2h-2z"/>
+          </svg>
+        </div>
+        <h3>Rakumadeの信頼と体制</h3>
+        <p>会社運営、社会貢献活動、外部機関との連携、社内チーム作りについてご紹介しています。</p>
+        <a href="#" class="info-card-link">会社情報を見る →</a>
+      </div>
+      <div class="info-card">
+        <div class="info-card-num">03</div>
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+        </div>
+        <h3>OEMナレッジ・知識集</h3>
+        <p>OEMの基礎知識、法令・コンプライアンス、導入事例、サービスの活用方法など、実務で確認しやすい情報をまとめています。</p>
+        <a href="#" class="info-card-link">ナレッジを読む →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ニュース（新規・独立セクション） -->
+<section class="news" id="sec-news">
+  <div class="container">
+    <div class="news-header reveal">
+      <div class="section-header">
+        <h2 class="section-title"><span class="section-title-mark"></span>お知らせ</h2>
+        <p class="section-subtitle">Rakumadeからの最新情報、イベント案内、サービス更新、物流に関するお知らせを掲載しています。</p>
+      </div>
+      <a href="#" class="news-all-btn">お知らせ一覧</a>
+    </div>
+
+    <div class="news-list">
+      <a href="#" class="news-item">
+        <div class="news-date">2026.05.18</div>
+        <div class="news-category cat-event">イベント</div>
+        <div class="news-title">【オンラインセミナー】初めての中国OEM・成功のための7つのポイント（6/15開催）</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-date">2026.05.10</div>
+        <div class="news-category cat-update">サービス更新</div>
+        <div class="news-title">PSE認証代理申請サービスの対象品目を拡大しました</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-date">2026.04.28</div>
+        <div class="news-category cat-notice">物流のお知らせ</div>
+        <div class="news-title">ゴールデンウィーク期間中の物流スケジュールについて</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-date">2026.04.20</div>
+        <div class="news-category">ナレッジ</div>
+        <div class="news-title">小ロットOEMで品質を保つための工場選定のコツ</div>
+      </a>
+      <a href="#" class="news-item">
+        <div class="news-date">2026.04.10</div>
+        <div class="news-category cat-update">サービス更新</div>
+        <div class="news-title">Amazon FBA直送サービスの対応倉庫を増設しました</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- 最終CTA -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <h2>OEMで、あなたのブランドを世界へ。</h2>
+    <p>まずは無料相談で、商品アイデアや今抱えているお悩みをお聞かせください。<br>専任のコンサルタントが、お客様に合う進め方を一緒に考えます。</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-hero-primary">無料会員登録 →</a>
+      <a href="#" class="btn-hero-secondary">無料相談を予約</a>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="data:image/png;base64,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EtAiQAHRwkYnEiABEiABCgjrAAmQAAmQgBYBCogWNjqRAAmQAAlQQFgHSIAESIAEtAhQQLSw0YkESIAESIACwjpAAiRAAiSgRYACooWNTiRAAiRAAhQQ1gESIAESIAEtAhQQLWx0IgESIAESoICwDpAACZAACWgRoIBoYaMTCZAACZAABYR1gARIgARIQIsABUQLG51IgARIgAQoIKwDJEACJEACWgQoIFrY6EQCJEACJEABYR0gARIgARLQIkAB0cJGJxIgARIgAQoI6wAJkAAJkIAWAQqIFjY6kQAJkAAJUEBYB0iABEiABLQIUEC0sNGJBEiABEiAAsI6QAIkQAIkoEWAAqKFjU4kQAIkQAIUENYBEiABEiABLQIUEC1sdCIBEiABEqCAsA6QAAmQAAloEaCAaGGjEwmQAAmQAAWEdYAESIAESECLAAVECxudSIAESIAEKCCsAyRAAiRAAloEKCBa2OhEAiRAAiRAAWEdIAESIAES0CJAAdHCRicSIAESIAEKCOsACZAACZCAFgEKiBY2OpEACZAACVBAWAdIgARIgAS0CFBAtLDRiQRIgARIgALCOkACJEACJKBFgAKihY1OJEACJEACFBDWARIgARIgAS0CFBAtbHQiARIgARKggLAOkAAJkAAJaBGggGhhoxMJkAAJkAAFhHWABEiABEhAiwAFRAsbnUiABEiABCggrAMkQAIkQAJaBCggWtjoRAIkQAIkQAFhHSABEiABEtAiQAHRwkYnEiABEiCB/wdvrP2TMTWabwAAAABJRU5ErkJggg==" alt="Rakumade" class="logo-img">
+        <p class="footer-brand-text">中国OEM/ODMから、<br>ブランド構築まで支援するパートナーです。</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social">X</a>
+          <a href="#" class="footer-social">YT</a>
+          <a href="#" class="footer-social">TT</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>ご利用ガイド</h5>
+        <ul>
+          <li><a href="#">ご利用ガイド</a></li>
+          <li><a href="#">5分でわかる強み</a></li>
+          <li><a href="#">料金一覧</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>OEM支援サービス</h5>
+        <ul>
+          <li><a href="#">OEM/ODM生産支援</a></li>
+          <li><a href="#">工場監査</a></li>
+          <li><a href="#">講師サービス</a></li>
+          <li><a href="#">検品・付加サービス</a></li>
+          <li><a href="#">国際物流</a></li>
+          <li><a href="#">撮影サービス</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>会社情報</h5>
+        <ul>
+          <li><a href="#">会社概要</a></li>
+          <li><a href="#">沿革</a></li>
+          <li><a href="#">採用情報</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>お知らせ・ナレッジ</h5>
+        <ul>
+          <li><a href="#">OEMナレッジ</a></li>
+          <li><a href="#">導入事例</a></li>
+          <li><a href="#">イベント情報</a></li>
+          <li><a href="#">物流のお知らせ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Rakumade. All rights reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">特定商取引法表記</a>
+        <a href="#">利用規約</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ライトボックス -->
+<div class="lightbox" id="welcomeLightbox">
+  <div class="lightbox-inner">
+    <div class="lightbox-close" id="closeLightbox">×</div>
+    <div class="lightbox-video">
+      <div class="lightbox-video-icon">▶</div>
+    </div>
+    <div class="lightbox-content">
+      <h3>ご登録ありがとうございます</h3>
+      <p>Rakumadeのサービス内容を、約3分の動画でご紹介します。<br>ブランドづくりの第一歩を、ここから始めてみませんか。</p>
+      <div class="lightbox-actions">
+        <a href="#" class="btn-conv-primary" id="lightboxWatch">動画を見る →</a>
+        <a href="#" class="btn-text" id="lightboxSkip" style="color: var(--gray-700);">後で見る</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// タブ切り替え（サービス）
+document.querySelectorAll('.service-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+    document.querySelectorAll('.service-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + target).classList.add('active');
+  });
+});
+
+// カウントアップ
+const counters = document.querySelectorAll('.counter');
+const countObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = +el.dataset.target;
+      const duration = 2000;
+      const startTime = performance.now();
+      const ease = t => 1 - Math.pow(1 - t, 3);
+      const update = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.floor(target * ease(progress));
+        el.textContent = target >= 1000 ? value.toLocaleString() : value;
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target >= 1000 ? target.toLocaleString() : target;
+      };
+      requestAnimationFrame(update);
+      countObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.3 });
+counters.forEach(c => countObserver.observe(c));
+
+// リビール
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// サイドナビ
+const sections = ['sec-hero', 'sec-goals', 'sec-services', 'sec-flow', 'sec-cases', 'sec-info', 'sec-news'];
+const navItems = document.querySelectorAll('.side-nav-item');
+function updateActiveNav() {
+  const scrollY = window.scrollY + window.innerHeight / 3;
+  let activeId = sections[0];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= scrollY) activeId = id;
+  });
+  navItems.forEach(item => {
+    item.classList.toggle('active', item.dataset.target === activeId);
+  });
+}
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav();
+navItems.forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    const el = document.getElementById(item.dataset.target);
+    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+  });
+});
+
+// 事例カルーセル（中央強調・両端縮小・無限ループ）
+const carousel = document.getElementById('casesCarousel');
+const originalCards = Array.from(carousel.querySelectorAll('.case-card'));
+const dotsContainer = document.getElementById('casesDots');
+const totalCards = originalCards.length;
+
+function getPerView() {
+  return window.innerWidth > 1024 ? 3 : (window.innerWidth > 640 ? 2 : 1);
+}
+
+// 末尾と先頭にクローンを追加して切れ目のないループを実現
+let cardsPerView = getPerView();
+const cloneCount = 3; // 最大表示数ぶんクローン
+// 先頭クローン（末尾からcloneCount枚）
+for (let i = 0; i < cloneCount; i++) {
+  const clone = originalCards[totalCards - 1 - i].cloneNode(true);
+  clone.classList.add('is-clone');
+  carousel.insertBefore(clone, carousel.firstChild);
+}
+// 末尾クローン（先頭からcloneCount枚）
+for (let i = 0; i < cloneCount; i++) {
+  const clone = originalCards[i].cloneNode(true);
+  clone.classList.add('is-clone');
+  carousel.appendChild(clone);
+}
+
+const allCards = Array.from(carousel.querySelectorAll('.case-card'));
+let realIndex = 0;            // 0..totalCards-1（ドット用）
+let pos = cloneCount;         // allCards上の現在位置（先頭クローンぶんオフセット）
+let isTransitioning = false;
+
+function buildDots() {
+  dotsContainer.innerHTML = '';
+  for (let i = 0; i < totalCards; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'cases-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => { goTo(i); pauseAuto(); });
+    dotsContainer.appendChild(dot);
+  }
+}
+
+function applyEmphasis() {
+  cardsPerView = getPerView();
+  allCards.forEach(card => card.classList.remove('is-edge', 'is-active'));
+  if (cardsPerView >= 3) {
+    allCards.forEach((card, i) => {
+      const rel = i - pos;
+      if (rel === 1) card.classList.add('is-active');
+      else if (rel === 0 || rel === 2) card.classList.add('is-edge');
+      else card.classList.add('is-active');
+    });
+  } else {
+    allCards.forEach(card => card.classList.add('is-active'));
+  }
+}
+
+function setTransform(animate) {
+  const gap = 24;
+  const cardWidth = allCards[0].offsetWidth + gap;
+  carousel.style.transition = animate ? 'transform 0.8s cubic-bezier(0.22,1,0.36,1)' : 'none';
+  carousel.style.transform = `translateX(-${pos * cardWidth}px)`;
+}
+
+function updateDots() {
+  dotsContainer.querySelectorAll('.cases-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === realIndex);
+  });
+}
+
+function render(animate = true) {
+  setTransform(animate);
+  applyEmphasis();
+  updateDots();
+}
+
+function next() {
+  if (isTransitioning) return;
+  isTransitioning = true;
+  pos++;
+  realIndex = (realIndex + 1) % totalCards;
+  render(true);
+}
+function prev() {
+  if (isTransitioning) return;
+  isTransitioning = true;
+  pos--;
+  realIndex = (realIndex - 1 + totalCards) % totalCards;
+  render(true);
+}
+function goTo(i) {
+  if (isTransitioning) return;
+  isTransitioning = true;
+  pos = cloneCount + i;
+  realIndex = i;
+  render(true);
+}
+
+// トランジション終了時にクローン位置なら本体側へ瞬間移動（ループの継ぎ目を消す）
+carousel.addEventListener('transitionend', () => {
+  if (pos >= cloneCount + totalCards) {
+    pos = cloneCount + (pos - (cloneCount + totalCards));
+    render(false);
+  } else if (pos < cloneCount) {
+    pos = cloneCount + totalCards - (cloneCount - pos);
+    render(false);
+  }
+  isTransitioning = false;
+});
+
+buildDots();
+render(false);
+
+document.getElementById('caseBtnPrev').addEventListener('click', () => { autoPaused = false; prev(); resetAuto(); });
+document.getElementById('caseBtnNext').addEventListener('click', () => { autoPaused = false; next(); resetAuto(); });
+
+const CASE_AUTO_DELAY = 8000;
+let autoPaused = false;
+let autoSlide = setInterval(next, CASE_AUTO_DELAY);
+function resetAuto() {
+  clearInterval(autoSlide);
+  if (!autoPaused) autoSlide = setInterval(next, CASE_AUTO_DELAY);
+}
+function pauseAuto() {
+  autoPaused = true;
+  clearInterval(autoSlide);
+}
+carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
+carousel.addEventListener('mouseleave', () => { if (!autoPaused) autoSlide = setInterval(next, CASE_AUTO_DELAY); });
+window.addEventListener('resize', () => render(false));
+
+// カード本体クリックで自動送りを止め、事例を読みやすくする
+allCards.forEach(card => {
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', () => { pauseAuto(); });
+});
+
+// ライトボックス
+const lightbox = document.getElementById('welcomeLightbox');
+const closeLightbox = document.getElementById('closeLightbox');
+const signupBtns = document.querySelectorAll('#signupBtn, #signupBtn2');
+signupBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+function closeLb() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+closeLightbox.addEventListener('click', closeLb);
+document.getElementById('lightboxSkip').addEventListener('click', (e) => { e.preventDefault(); closeLb(); });
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLb(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+</script>
+
+</body>
+</html>
